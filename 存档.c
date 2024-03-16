@@ -1,83 +1,200 @@
-// 定义存档文件名
+#include <SDL2/SDL.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <SDL2/SDL_image.h>
+
+#undef main
+
+// 定义存档文件名前缀和数量
 #define SAVE_FILE "F:\\gamesave.dat"
+#define NUM_SAVES 3
 
-// 游戏数据结构，这里只是一个示例
+// 游戏数据结构
 typedef struct {
-    int playerHealth;//生命
-    int map;//第几张的地图
-    int scientist2;//科学家二死或没死
-    int playerequipments_1;//玩家装备1
-    int playerequipments_2;//玩家装备2
-    int playerequipments_3;//玩家装备3
-    int playerequipments_4;//玩家装备4
-    int map_x;//地图位置x
-    int map_y;//地图位置y
-
-
-    // 其他需要保存的游戏数据
+    int playerHealth;
+    int playerScore;
+    int s2;
+    // 其他游戏数据
 } GameData;
 
-// 保存游戏数据到文件
-// 保存游戏数据到文件
-void saveGame(GameData data) {
-    FILE *file = fopen(SAVE_FILE, "wb"); // 使用二进制模式打开文件
+bool isPaused = false;
+int currentSave = 1; // 当前选中的存档编号
+
+SDL_Texture *pause_texture=NULL;
+SDL_Surface *pause_surface=NULL;
+SDL_Renderer *pause_rdr=NULL;
+SDL_Rect rect={0,0,1250,650};
+
+
+
+SDL_Rect rects[]={{100,100,200,50},{100,200,200,50},{100,300,200,50}};
+
+
+void drawHighlightedSave(int i){
+    //rect[i]变化图标，变亮
+    SDL_Surface* normalImage_1_Surface = SDL_LoadBMP("normal_image.bmp");
+    SDL_Surface* highlightImage_1_Surface = SDL_LoadBMP("highlight_image.bmp");
+    SDL_Texture* normalImageTexture = SDL_CreateTextureFromSurface(pause_rdr, normalImage_1_Surface);
+    SDL_Texture* highlightImageTexture = SDL_CreateTextureFromSurface(pause_rdr, highlightImage_1_Surface);
+
+   if (1) {
+            SDL_RenderCopy(pause_rdr, highlightImageTexture, NULL, &rects[i]);
+        } else {
+            SDL_RenderCopy(pause_rdr, normalImageTexture, NULL, &rects[i]);
+        }
+        SDL_RenderPresent(pause_rdr);
+
+}
+
+void drawUnhighlightedSave(int i){
+    //rect[i]变化图标，变暗
+}
+
+void pauseGame(SDL_Renderer *renderer) {
+    SDL_SetRenderDrawBlendMode(renderer,SDL_BLENDMODE_BLEND);
+    SDL_SetRenderDrawColor(renderer, 200, 0, 0, 200); // 半透明黑色背景
+    SDL_RenderFillRect(renderer, &rect);
+    // 绘制暂停界面
+
+    pause_surface=IMG_Load("1.jpg");//暂停界面
+    pause_texture=SDL_CreateTextureFromSurface(pause_rdr,pause_surface);
+    SDL_RenderCopy(pause_rdr,pause_texture,NULL,&rect);
+    SDL_RenderPresent(pause_rdr);
+
+   /* for (int i = 1; i <= NUM_SAVES; i++) {
+        if (i == currentSave) {
+            drawHighlightedSave(i);
+        }
+        else{drawUnhighlightedSave(i);}
+    }*/
+
+    // 刷新显示
+    SDL_RenderPresent(renderer);
+}
+
+void loadGame(GameData *data, int saveNum) {
+    char fileName[20];
+    sprintf(fileName, "%s%d.dat", SAVE_FILE, saveNum);
+
+    FILE *file = fopen(fileName, "rb");
+    if (file) {
+        fread(data, sizeof(GameData), 1, file);
+        fclose(file);
+    }
+}
+
+void saveGame(GameData data, int saveNum) {
+    char fileName[20];
+    sprintf(fileName, "%s%d.dat", SAVE_FILE, saveNum);
+
+    FILE *file = fopen(fileName, "wb");
     if (file) {
         fwrite(&data, sizeof(GameData), 1, file);
         fclose(file);
-        printf("游戏存档成功\n");
-    } else {
-        printf("无法保存游戏存档\n");
     }
 }
 
-// 从文件加载游戏数据
-GameData loadGame() {
-    GameData data;
-    FILE *file = fopen(SAVE_FILE, "rb");
-    if (file) {
-        fread(&data, sizeof(GameData), 1, file);
-        fclose(file);
-        printf("游戏存档加载成功\n");
-    } else {
-        printf("无法加载游戏存档\n");
-    }
-    return data;
-}
-..........
-int main(int argc, char *argv[]){
-    // 初始化SDL
-..........
-    // 创建游戏窗口
-..........
-    // 创建渲染器
-..........
-    // 游戏数据
+int main(int argc, char *argv[]) {
+    SDL_Init(SDL_INIT_VIDEO);
+
+    // 初始化游戏数据
     GameData gameData;
 
-    // 标记是否需要加载存档
-    bool loadSave = false;
+    SDL_Window *window = SDL_CreateWindow("Pause Menu", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1250, 650, SDL_WINDOW_SHOWN);
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+    bool quit = false;
+    SDL_Event event;
+    Uint32 starttime=0;
+    Uint32 endtime=0;
 
     while (!quit) {
-        SDL_Event event;
-        while (SDL_PollEvent(&event)){
-      if (event.type == SDL_KEYDOWN) {
-                // 按下S键保存存档
-                if (event.key.keysym.sym == SDLK_s) {
-                    saveGame(gameData);
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
+                quit = true;
+            } 
+             if (event.type == SDL_KEYDOWN) {
+            if (event.key.keysym.sym == SDLK_ESCAPE) {
+                starttime = SDL_GetTicks();
+                if(starttime-endtime>1000){
+                isPaused = !isPaused;
+                printf("pausing\n");
+                pauseGame(renderer);
+                printf("选择你的存档\n");}
                 }
-                // 按下L键加载存档
-                if (event.key.keysym.sym == SDLK_l) {
-                    loadSave = true;
+                if (isPaused==true) {
+
+
+                    // 在暂停界面时处理按键事件
+                     if (event.key.keysym.sym == SDLK_ESCAPE){
+                        endtime = SDL_GetTicks();
+                        
+                        if(endtime-starttime>100){
+                        printf("impausing\n");
+                        isPaused=!isPaused;
+                        }
+                     }
+                    if (event.key.keysym.sym == SDLK_k) {
+                        //esc 退出游戏
+                        
+                        printf("quit\n");
+                        quit = true;
+                        return 0;
+                    }
+                    if (event.key.keysym.sym == SDLK_s) {
+                        //s 保存当前游戏存档
+                        saveGame(gameData, currentSave);
+                        printf("游戏存档 %d 成功\n", currentSave);
+                        printf("目前血量：%d,目前成绩：%d",gameData.playerHealth,gameData.playerScore);
+                    }
+                    if (event.key.keysym.sym == SDLK_l) {
+                        //l 加载选中的存档
+                        loadGame(&gameData, currentSave);
+                        printf("加载游戏存档 %d\n", currentSave);
+                        printf("目前血量：%d,目前成绩：%d",gameData.playerHealth,gameData.playerScore);
+                    }
+                    if (event.key.keysym.sym == SDLK_UP) {
+                        // 上移选中的存档
+                        currentSave = (currentSave == 1) ? NUM_SAVES : currentSave - 1;
+                        printf("选择存档%d\n",currentSave);
+                        drawHighlightedSave(currentSave);
+                    }
+                    if (event.key.keysym.sym == SDLK_DOWN) {
+                        // 下移选中的存档
+                        currentSave = (currentSave == NUM_SAVES) ? 1 : currentSave + 1;
+                        printf("选择存档%d\n",currentSave);
+                        drawUnhighlightedSave(currentSave);
+                    }
+                    if(event.key.keysym.sym==SDLK_q){
+                        gameData.playerScore++;
+                        printf("score=%d\n",gameData.playerScore);
+                    }
+
                 }
-          ..........
-      }
-        ..........
+            }
     }
-..............
-  // 如果需要加载存档，则加载存档并重置标记
-        if (loadSave) {
-            gameData = loadGame();
-            loadSave = false;
+
+        // 游戏逻辑更新和渲染
+        if (!isPaused) {
+            // 处理游戏逻辑
+            // ...
+
+            // 渲染游戏画面
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255); // 白色背景
+            SDL_RenderClear(renderer);
+            // 绘制游戏元素
+            // ...
+
+            SDL_RenderPresent(renderer);
+        } else {
+            // 在暂停界面时暂停游戏逻辑和渲染
+            SDL_Delay(16);
         }
     }
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
+    return 0;
 }
