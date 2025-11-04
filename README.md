@@ -2,11 +2,11 @@
 
 ## 🤩 Introduction
 
-This is a demo of a 2D RPG game developed using C language and the SDL library. 
+This is a demo of a 2D RPG game developed using C language and the SDL library.
 
-<video src="game trailer.mp4" controls width="600">
-Your browser does not support playing this video.
-</video>
+![Game Trailer Teaser](static/game-trailer.gif)
+
+Check out the full game trailer [here](game-trailer.mp4).
 
 ## 🚀 Quick Start Guide
 Download the latest version of installation package.zip from the Releases section. After extracting, run either `Illuminati: The End of the World.msi` or `setup.exe` to install the game. 🤗
