@@ -1,0 +1,14 @@
+﻿F:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: 中间目录(x64\Debug\)包含从另一个项目(Project1.vcxproj, SDL2_test.vcxproj)共享的文件。   这会导致错误的清除和重新生成行为。
+  dialogue(1.cpp
+C:\Users\wangc\source\repos\Project2\Project2\dialogue(1.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\wangc\source\repos\Project2\Project2\SDL2_test.h(83,36): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“dialogue(1.cpp”)
+  
+C:\Users\wangc\source\repos\Project2\Project2\SDL2_test.h(84,35): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“dialogue(1.cpp”)
+  
+C:\Users\wangc\source\repos\Project2\Project2\dialogue(1.cpp(209,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project2\Project2\dialogue(1.cpp(94,1): warning C4715: “show_instruction”: 不是所有的控件路径都返回值
+C:\Users\wangc\source\repos\Project2\Project2\dialogue(1.cpp(417,1): warning C4715: “present”: 不是所有的控件路径都返回值
+C:\Users\wangc\source\repos\Project2\Project2\dialogue(1.cpp(257,1): warning C4715: “word_appear”: 不是所有的控件路径都返回值
+  Project2.vcxproj -> C:\Users\wangc\source\repos\Project2\x64\Debug\Project2.exe

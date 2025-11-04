@@ -1,0 +1,41 @@
+﻿  dialogue.cpp
+C:\Users\wangc\source\repos\Project1\Project1\dialogue.cpp(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\Users\wangc\source\repos\Project1\Project1\SDL2_test.h(82,36): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“dialogue.cpp”)
+  
+C:\Users\wangc\source\repos\Project1\Project1\SDL2_test.h(83,35): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“dialogue.cpp”)
+  
+C:\Users\wangc\source\repos\Project1\Project1\dialogue.cpp(110,20): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\dialogue.cpp(141,9): error C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Main.cpp
+C:\Users\wangc\source\repos\Project1\Project1\SDL2_test.h(82,36): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“Main.cpp”)
+  
+C:\Users\wangc\source\repos\Project1\Project1\SDL2_test.h(83,35): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  (编译源文件“Main.cpp”)
+  
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(268,16): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(269,16): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(509,17): warning C4244: “初始化”: 从“Uint64”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(718,15): warning C4244: “=”: 从“Uint64”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(461,5): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(512,5): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(883,54): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(884,54): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(924,23): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(941,23): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(960,24): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(985,24): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(1010,29): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(1014,34): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(1018,34): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(1022,34): warning C4302: “<function-style-cast>”: 从“const char *”到“char”截断
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(1350,25): warning C4552: ”+“: 未使用表达式结果
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(1357,25): warning C4552: ”-“: 未使用表达式结果
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(2374,39): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(2515,57): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(2516,57): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(2744,40): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+C:\Users\wangc\source\repos\Project1\Project1\Main.cpp(2745,39): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+  正在生成代码...

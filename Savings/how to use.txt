@@ -1,0 +1,1 @@
+Copy the archive you want to select to the archive folder of \ S, and then rename it as gamesave.dat1.dat

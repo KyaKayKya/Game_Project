@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL2_test", "SDL2_test\SDL2_test.vcxproj", "{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "illuminati The end of the world", "illuminati The end of the world\illuminati The end of the world.vdproj", "{CAADB27B-98C8-4AE7-83DD-26014EA35AD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Debug|x64.ActiveCfg = Debug|x64
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Debug|x64.Build.0 = Debug|x64
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Debug|x86.ActiveCfg = Debug|Win32
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Debug|x86.Build.0 = Debug|Win32
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Release|x64.ActiveCfg = Release|x64
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Release|x64.Build.0 = Release|x64
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Release|x86.ActiveCfg = Release|Win32
+		{1CF0FA20-D37F-4C6A-9385-BFBB6D0A8C15}.Release|x86.Build.0 = Release|Win32
+		{CAADB27B-98C8-4AE7-83DD-26014EA35AD0}.Debug|x64.ActiveCfg = Debug
+		{CAADB27B-98C8-4AE7-83DD-26014EA35AD0}.Debug|x86.ActiveCfg = Debug
+		{CAADB27B-98C8-4AE7-83DD-26014EA35AD0}.Release|x64.ActiveCfg = Release
+		{CAADB27B-98C8-4AE7-83DD-26014EA35AD0}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9CCEDA5D-1F90-4260-A645-E48FEC89481C}
+	EndGlobalSection
+EndGlobal
