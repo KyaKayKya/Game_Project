@@ -3,7 +3,7 @@
 /*
 *	Define 
 */
-#define SDL_MAIN_HANDLED  // give back my main��
+#define SDL_MAIN_HANDLED  // give back my main      
 #define FR 40  // Frame Rate
 #define FT 1000 / FR
 #define MT 300  // One Motion Time(ms)
@@ -19,6 +19,11 @@ The accuracy of targeted strikes is relatively high, while the slow and sluggish
 #define Bullet_Max_Speed 10
 #define Plane_Speed 5
 #define No_Hit_Time 500
+// 地图13�?4之间的过渡码（map_num的虚拟值，用于区分不同入口�?
+#define ENTER_MAP14_RIGHT 141  // 从Map3右侧门进入Map4
+#define ENTER_MAP14_LEFT  142  // 从Map3左侧门进入Map4
+#define ENTER_MAP13_RIGHT 131  // 从Map4右侧门返回Map3
+#define ENTER_MAP13_LEFT  132  // 从Map4左侧门返回Map3
 /*
 *	Include
 */
@@ -75,7 +80,7 @@ typedef struct Keycontrol {
 	char l_cmd;
 }Keycontrol;  // Store the key command
 
-typedef struct Puzzle1 {
+struct Puzzle1 {
 	int register_row = 0;
 	int register_column = 0;
 	int player_row = 0;
@@ -83,11 +88,11 @@ typedef struct Puzzle1 {
 	int puzzle_1_w = (1133 - 42) / 29 + (1133 - 42) * 1.5 / (29 * 22);
 	int puzzle_1_h = (604 - 96) / 12 + (604 - 96) * 1.3 / (12 * 12);
 	int round = 0;  // 0 represent player's turn 1 represent dragon's turn
-	int is_controlled = 0;  // 1 represent has been (dragon��controlled  0 represent has not been (dragon��controlled
-	int result = 10; // 1 represents dragon win��0 repreents player win
+	int is_controlled = 0;  // 1 represent has been (dragon      controlled  0 represent has not been (dragon      controlled
+	int result = 10; // 1 represents dragon win      0 repreents player win
 	int last_result = 0;  // 0 win 1 lose
-	int is_dialogue = 0;  // �Ƿ�Ի���
-}Puzzle1;
+	int is_dialogue = 0;  //    Ƿ   Ի      �?
+};
 
 extern int presentstate;
 

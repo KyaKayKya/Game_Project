@@ -17,8 +17,12 @@
 /*
 *	Define
 */
+#ifndef W
 #define W 1250
+#endif
+#ifndef H
 #define H 650
+#endif
 extern SDL_Window* Puzzle1_Window;
 extern SDL_Renderer* Puzzle1_Renderer;
 extern int presentstate;

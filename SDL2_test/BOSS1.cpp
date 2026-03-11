@@ -1,4 +1,4 @@
-#include "test2.h"
+#include "pause_menu.h"
 #include "SDL2_test.h"
 #include "BOSS.h"
 
@@ -76,8 +76,8 @@ SDL_Surface* surf_Dialogue_pic_1[6] = { 0 };
 SDL_Texture* txt_Dialogue_pic_1[6] = { 0 };
 SDL_Surface* Game_Over_BackGroundSurface_bOSs1 = NULL;
 SDL_Texture* Game_Over_BackGroundTexture_bOSs1 = NULL;
-SDL_Rect Player = { 500, 275, 10, 10 };  // ÕÊº“
-SDL_Rect Bottum1 = { 600, 300, 50, 50 }; // Ω¯»Î’Ω∂∑
+SDL_Rect Player = { 500, 275, 10, 10 };  // 
+SDL_Rect Bottum1 = { 600, 300, 50, 50 }; // 
 SDL_Rect BoSs = { 436, 0, 378, 240 };
 SDL_Rect wall_L = { 200, -650, 100, 650 };
 SDL_Rect wall_R = { 950, -650, 100, 650 };
@@ -239,29 +239,21 @@ void cLaEn_All_iN_bOSs1()
         SDL_FreeSurface(surfid[i]);
         SDL_DestroyTexture(txtid[i]);
     }
-    SDL_FreeSurface(Shifter_BackGroundSurface_bOSs1);
     SDL_DestroyTexture(Shifter_BackGroundTexture_bOSs1);
-    SDL_FreeSurface(surf_background);
     SDL_DestroyTexture(txt_background);
-    SDL_FreeSurface(surftt);
     SDL_DestroyTexture(txttt);
-    SDL_FreeSurface(surfstar);
     SDL_DestroyTexture(txtstar);
     SDL_FreeSurface(surfpyr[0]);
     SDL_DestroyTexture(txtpyr[0]);
     SDL_FreeSurface(surfpyr[1]);
     SDL_DestroyTexture(txtpyr[1]);
-    SDL_FreeSurface(surfhp);
     SDL_DestroyTexture(txthp);
-    SDL_FreeSurface(surfwall);
     SDL_DestroyTexture(txtwall);
-    SDL_FreeSurface(surffloor);
     SDL_DestroyTexture(txtfloor);
-    SDL_FreeSurface(Game_Over_BackGroundSurface_bOSs1);
     SDL_DestroyTexture(Game_Over_BackGroundTexture_bOSs1);
 }
 
-int Boss(int ct) // BossÕºœÒ
+int Boss(int ct) // Boss
 {
     if (ct >= 1 && ct <= 5)
     {
@@ -290,7 +282,7 @@ int Boss(int ct) // BossÕºœÒ
     }
 }
 
-int Random_atk_Mod(int atk_Round) // Œ±ÀÊª˙
+int Random_atk_Mod(int atk_Round) // 
 {
     if (atk_Round == 0)
         return 0;
@@ -300,12 +292,12 @@ int Random_atk_Mod(int atk_Round) // Œ±ÀÊª˙
         return (Player.x * Player.y) / (atk_Round + 1) % 2;
 }
 
-int Random_Star_Position(int atk_Round) // Œ±ÀÊª˙
+int Random_Star_Position(int atk_Round) // 
 {
     return (10 * Player.x * atk_Round + 1) / (Player.y) % 9;
 }
 
-int fROg(int count_of_Frog, int Stop_frOG) // «‡Õ‹
+int fROg(int count_of_Frog, int Stop_frOG) // 
 {
     int i;
     int* rectsY[3] = { &FroG01.y, &FroG02.y, &FroG03.y };
@@ -393,11 +385,11 @@ int fROg(int count_of_Frog, int Stop_frOG) // «‡Õ‹
     }
 }
 
-int Flies(int atk_Scd, int atk_Dly, int atk_Mod, int atk_Num) // ≤‘”¨
+int Flies(int atk_Scd, int atk_Dly, int atk_Mod, int atk_Num) // 
 {
     switch (atk_Mod)
     {
-    case 0: // ≥Â◊≤
+    case 0: // 
         if (atk_Scd >= 20)
         {
             Fly_Crash(&Fly1.x, &Fly1.y, atk_Scd, 0, atk_Dly);
@@ -411,7 +403,7 @@ int Flies(int atk_Scd, int atk_Dly, int atk_Mod, int atk_Num) // ≤‘”¨
         if (!dAmaGe_F[2])
             SDL_RenderCopy(rdr1, txtfly[2], NULL, &Fly3);
         break;
-    case 1: // ◊™»¶
+    case 1: // 
         if (atk_Scd >= 1)
         {
             switch (atk_Num)
@@ -451,7 +443,7 @@ int Flies(int atk_Scd, int atk_Dly, int atk_Mod, int atk_Num) // ≤‘”¨
     return atk_Scd;
 }
 
-void Fly_Circle(int* F_x, int* F_y, int atk_Scd, int atk_Dly, int atk_Num, int which_FLY) // ≤‘”¨◊™»¶
+void Fly_Circle(int* F_x, int* F_y, int atk_Scd, int atk_Dly, int atk_Num, int which_FLY) // 
 {
     int RadIus = atk_Dly + 50;
     int Circle_x[3][9] = { {Player.x - (RadIus / 1.414), Player.x, Player.x + (RadIus / 1.414), Player.x + RadIus, Player.x + (RadIus / 1.414), Player.x, Player.x - (RadIus / 1.414), Player.x - RadIus, Player.x - (RadIus / 1.414)}, {Player.x + (RadIus / 1.414), Player.x + RadIus, Player.x + (RadIus / 1.414), Player.x, Player.x - (RadIus / 1.414), Player.x - RadIus, Player.x - (RadIus / 1.414), Player.x, Player.x + (RadIus / 1.414)}, {Player.x, Player.x + (RadIus / 1.414), Player.x + RadIus, Player.x + (RadIus / 1.414), Player.x, Player.x - (RadIus / 1.414), Player.x - RadIus, Player.x - (RadIus / 1.414), Player.x} };
@@ -478,7 +470,7 @@ void Fly_Circle(int* F_x, int* F_y, int atk_Scd, int atk_Dly, int atk_Num, int w
     }
 }
 
-void Fly_Crash(int* F_x, int* F_y, int atk_Scd, int which_FLY, int atk_Dly) // ≤‘”¨≥Â◊≤
+void Fly_Crash(int* F_x, int* F_y, int atk_Scd, int which_FLY, int atk_Dly) // 
 {
     if (atk_Scd == atk_Dly)
     {
@@ -505,7 +497,7 @@ void Fly_Crash(int* F_x, int* F_y, int atk_Scd, int which_FLY, int atk_Dly) // ≤
         *F_y = 610;
 }
 
-int wall(int ct_fOr_wAll) // «Ω±⁄œ¬¬‰∂Øª≠
+int wall(int ct_fOr_wAll) // 
 {
     SDL_RenderCopy(rdr1, txtwall, NULL, &wall_L);
     SDL_RenderCopy(rdr1, txtwall, NULL, &wall_R);
@@ -533,12 +525,12 @@ int wall(int ct_fOr_wAll) // «Ω±⁄œ¬¬‰∂Øª≠
     return ct_fOr_wAll;
 }
 
-void TestText(int image_index) // ∂‘ª∞øÚ
+void TestText(int image_index) // 
 {
     SDL_RenderCopy(rdr1, txttt, NULL, &TestTExt);
 }
 
-int ColliSion(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2) // ≈ˆ◊≤ºÏ≤‚
+int ColliSion(int x1, int y1, int w1, int h1, int x2, int y2, int w2, int h2) // 
 {
     if (x1 < (x2 + w2) && (x1 + w1) > x2 && y1 < (y2 + h2) && (y1 + h1) > y2)
         return 60;
@@ -553,7 +545,7 @@ void ID_CarD(int Num_of_Stars)
 
 int bOss1_For_sciENtist2()
 {
-    /*if (SDL_Init(SDL_INIT_EVERYTHING) != 0) // ≥ı ºªØ
+    /*if (SDL_Init(SDL_INIT_EVERYTHING) != 0) // 
     {
         SDL_Log("Init failed: %s", SDL_GetError());
         return -1;
@@ -563,7 +555,7 @@ int bOss1_For_sciENtist2()
         printf("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
         return -1;
     }
-    win = SDL_CreateWindow("DEMO01", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, W, H, SDL_WINDOW_SHOWN);  // ¥¥Ω®¥∞ø⁄
+    win = SDL_CreateWindow("DEMO01", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, W, H, SDL_WINDOW_SHOWN);  // 
     rdr1 = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC); // ¥¥Ω®‰÷»æ∆˜*/
 
     surf_Dialogue_pic_1[0] = IMG_Load("Files For BOSS1/dialogue pic/Picture flies.png"); // dia pic 1
@@ -602,18 +594,23 @@ int bOss1_For_sciENtist2()
     txtfly[2] = SDL_CreateTextureFromSurface(rdr1, surffly[2]);
     surfwall = IMG_Load("Files For BOSS1/wall01.png");
     txtwall = SDL_CreateTextureFromSurface(rdr1, surfwall);
-    surfpyr[0] = IMG_Load("Files For BOSS1/spr_heart_1.png"); // …Ë÷√ÕÊº“£® ‹…À£©
+    SDL_FreeSurface(surfwall);
+    surfpyr[0] = IMG_Load("Files For BOSS1/spr_heart_1.png"); // 
     txtpyr[0] = SDL_CreateTextureFromSurface(rdr1, surfpyr[0]);
-    surfpyr[1] = IMG_Load("Files For BOSS1/spr_heart_0.png"); // …Ë÷√ÕÊº“
+    surfpyr[1] = IMG_Load("Files For BOSS1/spr_heart_0.png"); // 
     txtpyr[1] = SDL_CreateTextureFromSurface(rdr1, surfpyr[1]);
     surf_background = IMG_Load("Files For BOSS1/background for BOSS1.png");
     txt_background = SDL_CreateTextureFromSurface(rdr1, surf_background);
+    SDL_FreeSurface(surf_background);
     surftt = IMG_Load("Files For BOSS1/test text/test text05.png");
     txttt = SDL_CreateTextureFromSurface(rdr1, surftt);
+    SDL_FreeSurface(surftt);
     Shifter_BackGroundSurface_bOSs1 = IMG_Load("Files For BOSS1/FULL BLACK.png"); // BLACK
     Shifter_BackGroundTexture_bOSs1 = SDL_CreateTextureFromSurface(rdr1, Shifter_BackGroundSurface_bOSs1);
+    SDL_FreeSurface(Shifter_BackGroundSurface_bOSs1);
     Game_Over_BackGroundSurface_bOSs1 = IMG_Load("assets/Ingame/GameOver.png"); // GW
     Game_Over_BackGroundTexture_bOSs1 = SDL_CreateTextureFromSurface(rdr1, Game_Over_BackGroundSurface_bOSs1);
+    SDL_FreeSurface(Game_Over_BackGroundSurface_bOSs1);
     for (i = 0; i < 4; i++)
     {
         SDL_snprintf(file_fOr_bOSs, sizeof(file_fOr_bOSs), "Files For BOSS1/BOSS1 image/BOSS1 %d.png", i + 1);
@@ -629,12 +626,15 @@ int bOss1_For_sciENtist2()
 
     SDL_Event event;
 
-    surffloor = IMG_Load("Files For BOSS1/floor.png"); // µÿ∞Â
+    surffloor = IMG_Load("Files For BOSS1/floor.png"); // 
     txtfloor = SDL_CreateTextureFromSurface(rdr1, surffloor);
-    surfstar = IMG_Load("Files For BOSS1/Stars.png"); // –«–«
+    SDL_FreeSurface(surffloor);
+    surfstar = IMG_Load("Files For BOSS1/Stars.png"); // 
     txtstar = SDL_CreateTextureFromSurface(rdr1, surfstar);
+    SDL_FreeSurface(surfstar);
     surfhp = IMG_Load("Files For BOSS1/HP Bar.png");
     txthp = SDL_CreateTextureFromSurface(rdr1, surfhp);
+    SDL_FreeSurface(surfhp);
     Uint64 start_t, end_t;
     int delay;
 
@@ -657,7 +657,7 @@ int bOss1_For_sciENtist2()
             Player.x = 500;
             Player.y = 275;
         }
-        // ¥¶¿Ì ¬º˛
+        // 
         while (SDL_PollEvent(&event))
         {
             if (fight == 0)
@@ -672,7 +672,7 @@ int bOss1_For_sciENtist2()
                     {
                         int x = event.button.x;
                         int y = event.button.y;
-                        if (x >= 600 && x <= 650 && y >= 300 && y <= 350) // Ω¯»Î’Ω∂∑
+                        if (x >= 600 && x <= 650 && y >= 300 && y <= 350) // 
                         {
                             fight = 1;
                             iS_tHere_froG_OR_NOT = 0;
@@ -709,7 +709,7 @@ int bOss1_For_sciENtist2()
                     case SDLK_d:
                         moveRight = 1;
                         break;
-                    case SDLK_SPACE: // ∂‘ª∞Ω¯––
+                    case SDLK_SPACE: // 
                         image_index++;
                         break;
                     case SDLK_e:
@@ -748,7 +748,7 @@ int bOss1_For_sciENtist2()
             }
         }
 
-        // ∏¸–¬”Œœ∑◊¥Ã¨
+        // 
         if (moveUp == 1 && Player.y >= 250)
         {
             Player.y -= 5;
@@ -774,28 +774,28 @@ int bOss1_For_sciENtist2()
                 Player.x = 940;
         }
 
-        // ‰÷»æ
-        SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // …Ë÷√±≥æ∞…´
+        // 
+        SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // 
         SDL_RenderClear(rdr1);
-        SDL_RenderCopy(rdr1, txt_background, NULL, &fUll_sCrEEn); // ±≥æ∞
+        SDL_RenderCopy(rdr1, txt_background, NULL, &fUll_sCrEEn); // 
         switch (fight)
         {
         case 0:
-            SDL_SetRenderDrawColor(rdr1, 255, 0, 0, 255); // ∞¥≈•
+            SDL_SetRenderDrawColor(rdr1, 255, 0, 0, 255); // 
             SDL_RenderFillRect(rdr1, &Bottum1);
             break;
         case 1:
-            if (atk_Num == 0 && atk_Scd == 0 && iS_tHere_froG_OR_NOT == 0) // √ø¬÷π•ª˜ø™ º«∞÷ÿ÷√ÀÊª˙ ˝
+            if (atk_Num == 0 && atk_Scd == 0 && iS_tHere_froG_OR_NOT == 0) // 
             {
                 atk_Mod = Random_atk_Mod(atk_Round);
-                if (atk_Round >= 2 && Num_of_Stars < 3) // –«–«
+                if (atk_Round >= 2 && Num_of_Stars < 3) // 
                     Star_Position = Random_Star_Position(atk_Round);
             }
-            SDL_RenderCopy(rdr1, txtfloor, NULL, &Floor); // ªπ «µÿ∞Â
+            SDL_RenderCopy(rdr1, txtfloor, NULL, &Floor); // 
             ct_fOr_wAll = wall(ct_fOr_wAll);
             if (image_index > 1)
             {
-                if (iS_tHere_froG_OR_NOT) // «‡Õ‹
+                if (iS_tHere_froG_OR_NOT) // 
                 {
                     if (count_of_Frog % 100 == 0 && count_of_Frog != 0 && Stop_frOG == 0)
                         Stop_frOG = 50;
@@ -810,15 +810,15 @@ int bOss1_For_sciENtist2()
                 }
                 if (atk_Round >= 2 && Get_Star == 0 && Num_of_Stars < 3 && iS_tHere_froG_OR_NOT == 0)
                 {
-                    SDL_RenderCopy(rdr1, txtstar, NULL, &Stars[Star_Position]); // –«–«
+                    SDL_RenderCopy(rdr1, txtstar, NULL, &Stars[Star_Position]); // 
                 }
                 atk_Scd = Flies(atk_Scd, atk_Dly, atk_Mod, atk_Num);
-                if (atk_Scd == atk_Dly + 11) // 1/3¬÷π•ª˜
+                if (atk_Scd == atk_Dly + 11) // 1/3
                 {
                     atk_Scd = 0;
                     atk_Num++;
                 }
-                if (atk_Num == 3 && atk_Scd == atk_Dly) // “ª¬÷π•ª˜Ω· ¯
+                if (atk_Num == 3 && atk_Scd == atk_Dly) // 
                 {
                     if (!iS_tHere_froG_OR_NOT)
                     {
@@ -891,7 +891,7 @@ int bOss1_For_sciENtist2()
                     coUNt_oF_hEAl = 3;
                     Py_Hp += 10;
                 }
-                TestText(image_index); // ÷ÿ÷√≤‘”¨
+                TestText(image_index); // 
                 Fly1.x = 365;
                 Fly1.y = 265;
                 Fly2.x = 615;
@@ -936,7 +936,7 @@ int bOss1_For_sciENtist2()
                         Mix_CloseAudio();
                         iNIt_bOSs1();
                         cLaEn_All_iN_bOSs1();
-                        SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // …Ë÷√±≥æ∞…´
+                        SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // 
                         SDL_RenderClear(rdr1);
                         return 0;
                     }
@@ -975,7 +975,7 @@ int bOss1_For_sciENtist2()
                         Mix_CloseAudio();
                         iNIt_bOSs1();
                         cLaEn_All_iN_bOSs1();
-                        SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // …Ë÷√±≥æ∞…´
+                        SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // 
                         SDL_RenderClear(rdr1);
                         return 0;
                     }
@@ -1007,7 +1007,7 @@ int bOss1_For_sciENtist2()
                 if (!dAmaGe_F[5] && atk_Mod == 1)
                     dAmaGe_F[5] = ColliSion(Fly6.x, Fly6.y, Fly6.w, Fly6.h, rects_of_Laser[2].x, rects_of_Laser[2].y, rects_of_Laser[2].w, rects_of_Laser[2].h);
             }
-            if (Get_hUrt) // Œﬁµ–÷°
+            if (Get_hUrt) // 
                 Get_hUrt--;
             else
             {
@@ -1064,7 +1064,7 @@ int bOss1_For_sciENtist2()
                     }
                 }
             }
-            if (Get_hUrt == 60) // µÙ—™
+            if (Get_hUrt == 60) // 
             {
                 Py_Hp -= 10;
             }
@@ -1074,13 +1074,13 @@ int bOss1_For_sciENtist2()
             Health_Bar_Remain_BOSS.x = 925 - 600 * (Bs_Hp / 100.0);
             Health_Bar_Remain_BOSS.w = 600 * (Bs_Hp / 100.0);
             Health_Bar_Loss_BOSS.w = 600 - 600 * (Bs_Hp / 100.0);
-            SDL_SetRenderDrawColor(rdr1, 0, 0, 255, 255); // …Ë÷√BOSS ß»•—™¡ø—’…´
+            SDL_SetRenderDrawColor(rdr1, 0, 0, 255, 255); // …Ë÷√BOSS
             SDL_RenderFillRect(rdr1, &Health_Bar_Loss_BOSS);
-            SDL_SetRenderDrawColor(rdr1, 255, 0, 0, 255); // …Ë÷√BOSS £”‡—™¡ø—’…´
+            SDL_SetRenderDrawColor(rdr1, 255, 0, 0, 255); // …Ë÷√BOSS
             SDL_RenderFillRect(rdr1, &Health_Bar_Remain_BOSS);
-            SDL_SetRenderDrawColor(rdr1, 255, 0, 0, 255); // …Ë÷√ ß»•—™¡ø—’…´
+            SDL_SetRenderDrawColor(rdr1, 255, 0, 0, 255); // 
             SDL_RenderFillRect(rdr1, &Health_Bar_Loss);
-            SDL_SetRenderDrawColor(rdr1, 0, 255, 0, 255); // …Ë÷√ £”‡—™¡ø—’…´
+            SDL_SetRenderDrawColor(rdr1, 0, 255, 0, 255); // 
             SDL_RenderFillRect(rdr1, &Health_Bar_Remain);
             SDL_RenderCopy(rdr1, txthp, NULL, &Health_Bar);
             break;
@@ -1111,7 +1111,7 @@ int bOss1_For_sciENtist2()
                         {
                             iNIt_bOSs1();
                             cLaEn_All_iN_bOSs1();
-                            SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // …Ë÷√±≥æ∞…´
+                            SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // 
                             SDL_RenderClear(rdr1);
                             return 0;
                         }
@@ -1121,7 +1121,7 @@ int bOss1_For_sciENtist2()
                 }
                 iNIt_bOSs1();
                 cLaEn_All_iN_bOSs1();
-                SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // …Ë÷√±≥æ∞…´
+                SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // 
                 SDL_RenderClear(rdr1);
                 return 3;
             }
@@ -1131,7 +1131,7 @@ int bOss1_For_sciENtist2()
                 Mix_CloseAudio();
                 iNIt_bOSs1();
                 cLaEn_All_iN_bOSs1();
-                SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // …Ë÷√±≥æ∞…´
+                SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // 
                 SDL_RenderClear(rdr1);
                 return 1;
             }
@@ -1152,7 +1152,7 @@ int bOss1_For_sciENtist2()
     Mix_CloseAudio();
     iNIt_bOSs1();
     cLaEn_All_iN_bOSs1();
-    SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // …Ë÷√±≥æ∞…´
+    SDL_SetRenderDrawColor(rdr1, 0, 0, 0, 255); // 
     SDL_RenderClear(rdr1);
     return 0;
 }

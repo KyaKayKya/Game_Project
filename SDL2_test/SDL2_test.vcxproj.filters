@@ -21,7 +21,7 @@
     <ClInclude Include="BOSS.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Run Game.h">
+    <ClInclude Include="parkour.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="BOSS2.h">
@@ -30,10 +30,10 @@
     <ClInclude Include="enter.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="test2.h">
+    <ClInclude Include="pause_menu.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="3.h">
+    <ClInclude Include="puzzle3.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,19 +44,19 @@
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Run Game.cpp">
+    <ClCompile Include="parkour.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="BOSS2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="test2.cpp">
+    <ClCompile Include="pause_menu.cpp">
       <Filter>头文件</Filter>
     </ClCompile>
-    <ClCompile Include="3.cpp">
+    <ClCompile Include="puzzle3.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="dialogue(1.cpp">
+    <ClCompile Include="dialogue_system.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,8 +12,12 @@
 /*
 *	Define
 */
+#ifndef W
 #define W 1250
+#endif
+#ifndef H
 #define H 650
+#endif
 extern SDL_Window* Puzzle1_Window;
 extern SDL_Renderer* Puzzle1_Renderer;
 extern int presentstate;
@@ -27,7 +31,7 @@ int bIg_bOMb_iS_cOMiNG(int atk_Scd, int atk_Round);
 int On_The_Floor_Or_Not(int Circle_Center_x, int Circle_Center_y);
 int bOMbs_Controller(int nUm_oF_bOMbs, int atk_Scd, int atk_Round);
 int Boss2(int ct);
-void TestText(int image_index);
+void TestText_2(int image_index);
 void cLeAn_All_iN_bOSs2();
 int eXtRa_bIg_bOMbS(int atk_Scd, int atk_Round);
 void iNIt_bOSs2();

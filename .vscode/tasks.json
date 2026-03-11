@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build (Debug x64)",
+            "type": "shell",
+            "command": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\amd64\\MSBuild.exe",
+            "args": [
+                "SDL2_test\\SDL2_test.vcxproj",
+                "/p:Configuration=Debug",
+                "/p:Platform=x64",
+                "/v:minimal"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Run Game",
+            "type": "shell",
+            "command": "Start-Process",
+            "args": [
+                "-WorkingDirectory",
+                "${workspaceFolder}\\SDL2_test",
+                "-FilePath",
+                "${workspaceFolder}\\SDL2_test\\x64\\Debug\\SDL2_test.exe"
+            ],
+            "dependsOn": "Build (Debug x64)",
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

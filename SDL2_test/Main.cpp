@@ -2,11 +2,11 @@
 
 #include "SDL2_test.h"
 #include "BOSS.h"
-#include "Run Game.h"
+#include "parkour.h"
 #include "BOSS2.h"
 #include "enter.h"
-#include "test2.h"
-#include "3.h"
+#include "pause_menu.h"
+#include "puzzle3.h"
 /*
 *
 *	Global Variable
@@ -16,134 +16,134 @@ int is_disk3 = 1;
 int is_disk4 = 1;
 int is_disk6 = 1;
 // disk 
-SDL_Surface* disk_BackGroundSurface = NULL;  // 图形
-SDL_Texture* disk_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* disk_BackGroundSurface = NULL;  // 图      
+SDL_Texture* disk_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect disk_BackGroundRect[3];
 // choice
-SDL_Surface* choice_BackGroundSurface = NULL;  // 图形
-SDL_Texture* choice_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* choice_BackGroundSurface = NULL;  // 图      
+SDL_Texture* choice_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect choice_BackGroundRect;
 // map 0
-SDL_Window* Puzzle1_Window = NULL;  // 窗口
-SDL_Renderer* Puzzle1_Renderer = NULL;  // 画笔
-SDL_Surface* Puzzle1_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Puzzle1_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Window* Puzzle1_Window = NULL;  //             
+SDL_Renderer* Puzzle1_Renderer = NULL;  //             
+SDL_Surface* Puzzle1_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Puzzle1_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Puzzle1_BackGroundRect;
 // map 1
-SDL_Surface* Map1_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map1_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map1_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map1_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map1_BackGroundRect;
 // map 2
-SDL_Surface* Map2_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map2_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map2_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map2_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map2_BackGroundRect;
 // map 3
-SDL_Surface* Map3_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map3_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map3_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map3_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map3_BackGroundRect;
 // map 4
-SDL_Surface* Map4_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map4_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map4_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map4_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map4_BackGroundRect;
 // map 5
-SDL_Surface* Map5_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map5_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map5_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map5_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map5_BackGroundRect;
 // map 5_2
-SDL_Surface* Map5_2_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map5_2_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map5_2_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map5_2_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map5_2_BackGroundRect;
 // map 6
-SDL_Surface* Map6_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map6_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map6_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map6_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map6_BackGroundRect;
 // map 7
-SDL_Surface* Map7_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map7_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map7_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map7_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map7_BackGroundRect;
 // map 8
-SDL_Surface* Map8_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map8_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map8_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map8_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map8_BackGroundRect;
 // map 20
-SDL_Surface* Map20_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map20_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map20_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map20_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map20_BackGroundRect;
 // map 21
-SDL_Surface* Map21_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map21_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map21_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map21_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map21_BackGroundRect;
 // map 22
-SDL_Surface* Map22_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map22_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map22_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map22_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map22_BackGroundRect;
 // map 23
-SDL_Surface* Map23_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map23_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map23_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map23_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map23_BackGroundRect;
 // map 24
-SDL_Surface* Map24_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Map24_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Map24_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Map24_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Map24_BackGroundRect;
 // Puzzle 1
-SDL_Surface* Puzzle_1_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Puzzle_1_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Puzzle_1_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Puzzle_1_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Puzzle_1_BackGroundRect;
 // Heart
-SDL_Surface* Heart_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Heart_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Heart_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Heart_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Heart_BackGroundRect;
 // Dragon_Heart
-SDL_Surface* Dragon_Heart_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Dragon_Heart_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Dragon_Heart_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Dragon_Heart_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 // map shifter
-SDL_Surface* Shifter_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Shifter_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Shifter_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Shifter_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Shifter_BackGroundRect;
 // Plane fight
-SDL_Surface* Plane_fight_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Plane_fight_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Plane_fight_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Plane_fight_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Plane_fight_BackGroundRect;
 SDL_Rect Plane_fight_BackGroundRect_B[2];  // Blue sky
 // Plane
-SDL_Surface* Plane_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Plane_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Plane_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Plane_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Plane_BackGroundRect;
 // Bullet
 const int Bullet_num = 60;
-SDL_Surface* Bullet_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Bullet_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Bullet_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Bullet_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Bullet_BackGroundRect[Bullet_num];
 // GameOver
-SDL_Surface* GameOver_BackGroundSurface = NULL;  // 图形
-SDL_Texture* GameOver_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* GameOver_BackGroundSurface = NULL;  // 图      
+SDL_Texture* GameOver_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect GameOver_BackGroundRect;
-// left、right
-SDL_Surface* Player0_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player0_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+// left      right
+SDL_Surface* Player0_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player0_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 SDL_Rect Player0_BackGroundRect;
-SDL_Surface* Player1_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player1_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
-SDL_Surface* Player12_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player12_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Player1_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player1_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
+SDL_Surface* Player12_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player12_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 // up
-SDL_Surface* Player2_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player2_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
-SDL_Surface* Player3_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player3_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
-SDL_Surface* Player4_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player4_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
-SDL_Surface* Player5_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player5_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Player2_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player2_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
+SDL_Surface* Player3_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player3_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
+SDL_Surface* Player4_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player4_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
+SDL_Surface* Player5_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player5_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 // down
-SDL_Surface* Player6_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player6_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
-SDL_Surface* Player7_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player7_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
-SDL_Surface* Player8_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player8_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
-SDL_Surface* Player9_BackGroundSurface = NULL;  // 图形
-SDL_Texture* Player9_BackGroundTexture = NULL;  // 纹理（将图形转换成画笔能识别的轨迹）
+SDL_Surface* Player6_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player6_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
+SDL_Surface* Player7_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player7_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
+SDL_Surface* Player8_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player8_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
+SDL_Surface* Player9_BackGroundSurface = NULL;  // 图      
+SDL_Texture* Player9_BackGroundTexture = NULL;  //                         图      转         苫               识      墓旒?      
 TTF_Font* Date_Font = NULL;
 Mix_Chunk* SoundEffect;
 Mix_Chunk* Error_SoundEffect;
@@ -152,20 +152,20 @@ Mix_Music* Puzzle_1_bgm;
 Mix_Music* Puzzle_2_bgm;
 Mix_Music* Before_boss2_bgm;
 SDL_Color FontColor = { 255, 255, 255, 255 };  // RGBA
-Keycontrol key_cmd;  // 键盘控制结构体
-Player player; // 玩家结构体
-Puzzle1 puzzle1;  // 谜题结构体
-Object object[100];  // 地图中碰撞箱结构体
-Circle Bullet[Bullet_num];  // 弹幕结构体
+Keycontrol key_cmd;  //          炭      平峁?      
+Player player; //       医峁?      
+Puzzle1 puzzle1;  //             峁?      
+Object object[100];  //       图            撞      峁?      
+Circle Bullet[Bullet_num];  //       幕   峁?      
 SDL_Rect mAIn_fUll_sCrEEn = { 0, 0, 1250, 650 };
 SDL_Rect rECt_dialogue_pic_mAIn = { 289, 40, 672, 350 };
-int lose_count = 0;  // 真男人失败次数 大于5次难度减半
-int is_quit = 0;  // 标志是否QUIT过
-int map = 0;  // 0代表地图0；1代表Map1；2代表puzzle1；3代表真男人; 5 代表boss1; 12代表Map2;13代表Map3;14代表Map4;15代表Map5;16代表Map6;17代表Map7;
-int map_num = 3;  // 代表要换的地图(初始化的值为直接跳到的地图编号)
-int F_counter = 0;  // 帧计数器
-int is_change = 0;  // 1代表要换地图了
-int alpha = 0;  // 透明度
+int lose_count = 0;  //                   失   艽                      5         讯燃         
+int is_quit = 0;  //       志   欠   QUIT      
+int map = 0;  // 0                  图0      1            Map1      2            puzzle1      3                              ; 5             boss1; 12            Map2;13            Map3;14            Map4;15            Map5;16            Map6;17            Map7;
+int map_num = 3;  //             要         牡   图(      始            值为直                     牡   图         )
+int F_counter = 0;  // 帧                  
+int is_change = 0;  // 1            要            图      
+int alpha = 0;  // 透            
 int map_ID_opeNDoor = 0;
 int calendar[12][31] = {
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -179,8 +179,8 @@ int calendar[12][31] = {
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
-	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };  // 表示日期是否存在 1 存在 0 不存在
-Uint64 last_cmd = 0, now_cmd = 0;  // Puzzle1 两命令间隔限制
+	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} };  //       示               欠             1              0                   
+Uint64 last_cmd = 0, now_cmd = 0;  // Puzzle1                                     
 
 int boss1_result = 2;  // result of boss1 0 quit 1 win 2 nothing 3 lose
 int boss2_result = 2;  // result of boss2 0 quit 1 win 2 nothing 3 lose
@@ -192,10 +192,10 @@ int puzzle2_is_auto = 0;  // whether if auto is played 0 no 1 yes
 
 int presentstate = 1;
 
-int hit_count = 0;  // 记录被击中数
-int Bullet_Generate_Ratio = 6;  // 生成bullet参数
-Uint64 last_hit = 0;  // 两次碰撞间隔
-Uint64 Start_Plane_time = 0;  // 开始游玩的时候
+int hit_count = 0;  //       录                        
+int Bullet_Generate_Ratio = 6;  //             bullet            
+Uint64 last_hit = 0;  //                   撞         
+Uint64 Start_Plane_time = 0;  //       始               时      
 
 Uint64 Last_E_time = 0;
 
@@ -229,8 +229,8 @@ Dialogue
 */
 /*
 	time machin instruction:
-	- 【Warning!】Follows are VERY important, there were a lot of workers lost in time because they SKIP ME!
-	  【Warning!】Do NOT skip me unless you know how to control the time machine.
+	-       Warning!      Follows are VERY important, there were a lot of workers lost in time because they SKIP ME!
+	        Warning!      Do NOT skip me unless you know how to control the time machine.
 	   Time machine can't 'jump' from 1.1 to 12.31 directly, there's three limitations.
 
 	- 1.Within the same turn of control, the time machine can only travel to the future and cannot go back to the past.
@@ -238,14 +238,14 @@ Dialogue
 	- 2.The time machine can only travel within the same month (e.g., from January 1st to January 20th)
 	or between different months but the same day (e.g., from February 24th to May 24th).
 	- 3.You can't travel to today (10.10->10.10)
-	- 【WASD】to choose the date
-	- 【Enter】to travel to the date you choose
+	-       WASD      to choose the date
+	-       Enter      to travel to the date you choose
 	- In sum,  in a "calendar", time machine can only travel horizontally or vertically in one turn.
 
 	Encounter with time phantom:
 
 	- Why... I can't control my body!
-	- 【Warning!】 【Warning!】 You encounter an evil time phantom!
+	-       Warning!             Warning!       You encounter an evil time phantom!
 	- The time phantom manages to possess your body
 	- The time phantom succeed...temporarily
 	- You and time phantom will take turns controlling your body,
@@ -314,7 +314,7 @@ char Puzz1_25[100] = { "Brave Prince, please ensure that every time you control 
 char Puzz1_26[100] = { "You aim for the \"magic date\" as your destination." };
 char Puzz1_27[100] = { "Wishing you a success." };
 
-//char P28[100] = { "Brilliant！You defeat the time phantom!" };
+//char P28[100] = { "Brilliant      You defeat the time phantom!" };
 //
 //char P29[100] = { "This is a test text!" };
 char P30[100];
@@ -356,7 +356,7 @@ char aft_bOSs1_c2_5[100] = { "..." };
 char aft_bOSs1_c2_6[100] = { "Here it is. Wyven, you are free now." };
 char aft_bOSs1_c2_7[100] = { "How can you... (Sign) Anyway, I really appreciate it." };
 char aft_bOSs1_c2_8[100] = { "Now you have shown me a life-saving kindness." };
-char aft_bOSs1_c2_9[100] = { "With my current physical condition, I can’t go with you." };
+char aft_bOSs1_c2_9[100] = { "With my current physical condition, I can      t go with you." };
 char aft_bOSs1_c2_10[100] = { "But after saving the world, if there is any need in the laboratory, I will do my best to help." };
 char aft_bOSs1_c2_11[100] = { "I will perform basic wound treatment for you. Please do not move around." };
 char aft_bOSs1_c2_12[100] = { "Thanks. DC is a genius. He always manage to do things that ordinary people dare not think of..." };
@@ -561,7 +561,7 @@ bool running = true;
 int main(int argc, char* argv[])
 {
 
-	// 帧率控制
+	// 帧   士         
 	Uint64 start_t, end_t;
 	int delay;
 
@@ -600,7 +600,7 @@ int main(int argc, char* argv[])
 	// Init object
 	Object_INIT();
 
-	// 入场
+	//    
 	/*textFadeInOut(Puzzle1_Window, Puzzle1_Renderer, Date_Font, "Click to start", FontColor);*/
 	int load_result = Load_IN();
 	if (load_result == -1)
@@ -626,6 +626,16 @@ int main(int argc, char* argv[])
 		is_time_machine_dialogue = gameData.is_time_machine_dialogue;
 		parkour_result = gameData.parkour_result;
 		lose_count = gameData.lose_count;
+		// 鎭㈠?嶅?硅瘽鐘舵?
+		enter_is_dialogue = gameData.enter_is_dialogue;
+		tough_enough_dialogue = gameData.tough_enough_dialogue;
+		dialogue_aFTEr_pLAne = gameData.dialogue_aFTEr_pLAne;
+		dialogue_Lamy = gameData.dialogue_Lamy;
+		rOCk_hOLe_dialogue = gameData.rOCk_hOLe_dialogue;
+		dialogue_beFOre_Puzz3 = gameData.dialogue_beFOre_Puzz3;
+		map5_is_dialogue = gameData.map5_is_dialogue;
+		dialogue_Emma = gameData.dialogue_Emma;
+		dialogue_Wyvern = gameData.dialogue_Wyvern;
 	}
 	if (player.x==0 && player.y==0 || boss1_result == 0 || boss2_result == 0)
 	{
@@ -649,12 +659,12 @@ int main(int argc, char* argv[])
 	// init volume
 	Mix_HaltMusic();
 	Mix_Volume(-1, 0);
-	int sound_channel_1 = Mix_PlayChannel(-1, SoundEffect, 0);  // 播放音效
+	int sound_channel_1 = Mix_PlayChannel(-1, SoundEffect, 0);  //                   
 	Mix_Volume(sound_channel_1, 32);
 	Mix_VolumeMusic(64);  // 0~128
 
 	// play Music
-	Mix_PlayMusic(SoundBackGround, -1);  // 播放音乐
+	Mix_PlayMusic(SoundBackGround, -1);  //                         
 
 
 	while (map != map_num)
@@ -665,13 +675,13 @@ int main(int argc, char* argv[])
 		}
 		else if(map_num != 0)
 		{
-			Map_Shift(map_num, player.x, player.y);  // 方便调试
+			Map_Shift(map_num, player.x, player.y);  //                      
 		}
 		else if (map_num == 0)
 		{
 			Map_Shift(map_num, W/2, H - player.h);
 		}
-		//Map_Shift(map_num, player.x, player.y);  // 方便调试
+		//Map_Shift(map_num, player.x, player.y);  //                      
 		// represent
 		SDL_RenderPresent(Puzzle1_Renderer);
 	}
@@ -832,7 +842,7 @@ int main(int argc, char* argv[])
 				/*Center_Text(0, 0, W, H / 6, "Hallway");*/
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					map_num = 2;
 					Map_Shift(map_num, W / 2 + Map1_BackGroundSurface->w * 3 / 2 - player.w / 2, player.y);
 				}
@@ -863,7 +873,7 @@ int main(int argc, char* argv[])
 				Map_1(19, 19);
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					map_num = 12;
 					Map_Shift(map_num, Map2_BackGroundRect.x + 16 + player.w / 2, Map2_BackGroundRect.y + 755 + player.h / 2);
 				}
@@ -875,7 +885,7 @@ int main(int argc, char* argv[])
 				if (keystates[SDL_SCANCODE_A] == 1 && key_cmd.a == 0)
 				{
 					key_cmd.a = 1;
-					/*printf("A: %d\n", start_t);  // 事实证明，keystates方法一次可以检测所有按键的状态*/
+					/*printf("A: %d\n", start_t);  //       实证            keystates            一   慰      约               邪               状态*/
 				}
 				else if (keystates[SDL_SCANCODE_A] == 0 && key_cmd.a > 0)
 				{
@@ -918,7 +928,7 @@ int main(int argc, char* argv[])
 					Puzzle_1();
 				}
 
-				// 输出日期
+				//                      
 				char date[60];
 				const char* Month[12] = { "January","February","March","April","May","June","July","August","September","October","November","December" };
 
@@ -926,7 +936,7 @@ int main(int argc, char* argv[])
 
 				Center_Text(0, 0, W, H / 6 - 20, date);
 
-				// 判断结果
+				//    卸辖      
 				if (puzzle1.result == 1)
 				{
 					// dragon win
@@ -972,10 +982,10 @@ int main(int argc, char* argv[])
 				}
 
 				if (tough_enough_dialogue)
-					// 输出秒数
+					//                      
 					/*char hit_num[60];*/
 				{
-					int Time = 20000;  // 定时器倒计时(ms)
+					int Time = 20000;  //       时                  时(ms)
 					char time[60];
 					int msecond = SDL_GetTicks64() - Start_Plane_time;
 					int second = (Time - msecond) / 1000;
@@ -1039,7 +1049,7 @@ int main(int argc, char* argv[])
 				Map_2(8,17);
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 13)
 					{
 						Map_Shift(map_num, 84,285);
@@ -1061,12 +1071,12 @@ int main(int argc, char* argv[])
 				Map_3(33, 38);
 				if (is_change == 1)
 				{
-					// 换地图
-					if (map_num == 141)
+					//             
+					if (map_num == ENTER_MAP14_RIGHT)
 					{
 						Map_Shift(14, 723, 491);
 					}
-					else if (map_num == 142)
+					else if (map_num == ENTER_MAP14_LEFT)
 					{
 						Map_Shift(14, 134, 487);
 					}
@@ -1085,7 +1095,7 @@ int main(int argc, char* argv[])
 				Map_4(29, 32);
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 15)
 					{
 						Map_Shift(map_num, 616, 471);
@@ -1094,11 +1104,11 @@ int main(int argc, char* argv[])
 					{
 						Map_Shift(map_num, 619, 601);
 					}
-					else if (map_num == 131)
+					else if (map_num == ENTER_MAP13_RIGHT)
 					{
 						Map_Shift(13, 1076, 110);
 					}
-					else if (map_num == 132)
+					else if (map_num == ENTER_MAP13_LEFT)
 					{
 						Map_Shift(13, 484, 118);
 					}
@@ -1111,7 +1121,7 @@ int main(int argc, char* argv[])
 				Map_5(18,22);
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 16)
 					{
 						Map_Shift(map_num, 505, 457);
@@ -1139,7 +1149,7 @@ int main(int argc, char* argv[])
 				Map_6(23, 28);
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 14)
 					{
 						Map_Shift(map_num, 727, 151);
@@ -1157,7 +1167,7 @@ int main(int argc, char* argv[])
 				Map_7(39, 40);
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 18)
 					{
 						Map_Shift(map_num, 33, 405);
@@ -1175,7 +1185,7 @@ int main(int argc, char* argv[])
 				Map_8();
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 17)
 					{
 						Map_Shift(map_num, 1148, 313);
@@ -1199,7 +1209,7 @@ int main(int argc, char* argv[])
 			//	/*Game_over();*/
 			//	if (is_change == 1)
 			//	{
-			//		// 换地图
+			//		//             
 			//		if (boss1_result == 3)
 			//		{
 			//			map_num = 18;
@@ -1214,16 +1224,16 @@ int main(int argc, char* argv[])
 			//}
 			else if (map == 20)
 			{
-				// 第二幕 第0张图（飞机大战前剧情 apron）
+				//    诙   幕       0      图         苫         战前             apron      
 				SDL_RenderCopy(Puzzle1_Renderer, Map20_BackGroundTexture, NULL, &Map20_BackGroundRect);
 				if (lose_count == 0 || puzzle2_is_auto == 0)
 				{
 					puzzle2_is_auto = 1;
 					Mix_HaltMusic();
-					Mix_PlayMusic(Puzzle_2_bgm, -1);  // 播放音乐
+					Mix_PlayMusic(Puzzle_2_bgm, -1);  //                         
 				}
 				/*
-				这里加剧情
+				            泳         
 				*/
 				if (map_num == 20)
 				{
@@ -1275,13 +1285,13 @@ int main(int argc, char* argv[])
 			}
 			else if (map == 21)
 			{
-				// 第二幕 第1张图（飞机大战后森林）
+				//    诙   幕       1      图         苫         战      森   郑   
 				Key_detect();
 
 				Map_21();
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 22)
 					{
 						Map_Shift(map_num, player.w, H - player.h);
@@ -1290,13 +1300,13 @@ int main(int argc, char* argv[])
 			}
 			else if (map == 22)
 			{
-				// 第二幕 第2张图（跑酷前森林）
+				//    诙   幕       2      图         芸   前森   郑   
 				Key_detect();
 
 				Map_22();
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 23 && parkour_result == 2)
 					{
 						Map_Shift(map_num, player.w, H - player.h);
@@ -1309,7 +1319,7 @@ int main(int argc, char* argv[])
 			}
 			else if (map == 23)
 			{
-				// 第二幕 跑酷
+				//    诙   幕    芸   
 				if (parkour_result == 2)  // nothing
 				{
 					parkour_result = run_forest_run();
@@ -1338,7 +1348,7 @@ int main(int argc, char* argv[])
 				Map_24();
 				if (is_change == 1)
 				{
-					// 换地图
+					//             
 					if (map_num == 25)
 					{
 						Map_Shift(map_num, player.w, H - player.h);
@@ -1415,8 +1425,7 @@ int main(int argc, char* argv[])
 				if ( result == 3)
 				{
 					dialogue_beFOre_Puzz3 = 0;
-					map == 26;
-					
+					map = 26;  // reset to map 26 to replay puzzle 3
 				}
 				else if (result == 1)
 				{
@@ -1446,7 +1455,7 @@ int main(int argc, char* argv[])
 
 			end_t = SDL_GetTicks64();
 			delay = FT - (end_t - start_t);
-			if (delay > 0 && map != 2)  // Puzzle1不需要控制帧率
+			if (delay > 0 && map != 2)  // Puzzle1            要            帧      
 			{
 				SDL_Delay(delay);
 			}
@@ -1511,14 +1520,16 @@ void LOAD()
 {
 	// choice
 	choice_BackGroundSurface = IMG_Load("assets/Ingame/choice.png");
-	choice_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, choice_BackGroundSurface);  // 转换为纹理
+	choice_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, choice_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(choice_BackGroundSurface);
 	choice_BackGroundRect.x = 0;  // choice
 	choice_BackGroundRect.y = 0;
 	choice_BackGroundRect.w = W;
 	choice_BackGroundRect.h = H;
 	// disk
 	disk_BackGroundSurface = IMG_Load("assets/Ingame/disk.png");
-	disk_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, disk_BackGroundSurface);  // 转换为纹理
+	disk_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, disk_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(disk_BackGroundSurface);
 	disk_BackGroundRect[0].x = 460;  // disk3
 	disk_BackGroundRect[0].y = 415;
 	disk_BackGroundRect[0].w = 35;
@@ -1533,185 +1544,218 @@ void LOAD()
 	disk_BackGroundRect[2].h = 35;
 	// Map0
 	Puzzle1_BackGroundSurface = IMG_Load("assets/Ingame/teleport.png");
-	Puzzle1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Puzzle1_BackGroundSurface);  // 转换为纹理
-	Puzzle1_BackGroundRect.x = W/2-Puzzle1_BackGroundSurface->w/2;  // 居中
+	Puzzle1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Puzzle1_BackGroundSurface);  // 转      为            
+	Puzzle1_BackGroundRect.x = W/2-Puzzle1_BackGroundSurface->w/2;  //             
 	Puzzle1_BackGroundRect.y = -H;
 	Puzzle1_BackGroundRect.w = Puzzle1_BackGroundSurface->w;
+SDL_FreeSurface(Puzzle1_BackGroundSurface);
 	Puzzle1_BackGroundRect.h = H*2;
 	// Map1
 	Map1_BackGroundSurface = IMG_Load("assets/Ingame/map_1.png");
-	Map1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map1_BackGroundSurface);  // 转换为纹理
-	Map1_BackGroundRect.x = W/2 - 320;  // 侧边居中
+	Map1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map1_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map1_BackGroundSurface);
+	Map1_BackGroundRect.x = W/2 - 320;  //       呔         
 	Map1_BackGroundRect.y = H / 2 - 200;
 	Map1_BackGroundRect.w = 640;
 	Map1_BackGroundRect.h = 400;
 	// Map2
 	Map2_BackGroundSurface = IMG_Load("assets/Ingame/map_2.png");
-	Map2_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map2_BackGroundSurface);  // 转换为纹理
+	Map2_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map2_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map2_BackGroundSurface);
 	Map2_BackGroundRect.w = 450;
 	Map2_BackGroundRect.h = H * 2;
-	Map2_BackGroundRect.x = W / 2 - Map2_BackGroundRect.w / 2;  // 居中
+	Map2_BackGroundRect.x = W / 2 - Map2_BackGroundRect.w / 2;  //             
 	Map2_BackGroundRect.y = -H + 220;
 	// Map3
 	Map3_BackGroundSurface = IMG_Load("assets/Ingame/map_3.png");
-	Map3_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map3_BackGroundSurface);  // 转换为纹理
+	Map3_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map3_BackGroundSurface);  // 转      为            
 	Map3_BackGroundRect.w = Map3_BackGroundSurface->w * 3;
 	Map3_BackGroundRect.h = Map3_BackGroundSurface->h * 3;
-	Map3_BackGroundRect.x = W / 2 - Map3_BackGroundRect.w/2;  // 居中
+SDL_FreeSurface(Map3_BackGroundSurface);
+	Map3_BackGroundRect.x = W / 2 - Map3_BackGroundRect.w/2;  //             
 	Map3_BackGroundRect.y = H / 2 - Map3_BackGroundRect.h/2;
 	// Map4
 	Map4_BackGroundSurface = IMG_Load("assets/Ingame/map_4.png");
-	Map4_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map4_BackGroundSurface);  // 转换为纹理
+	Map4_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map4_BackGroundSurface);  // 转      为            
 	Map4_BackGroundRect.w = Map4_BackGroundSurface->w*3;
 	Map4_BackGroundRect.h = Map4_BackGroundSurface->h*3;
-	Map4_BackGroundRect.x = W/2 - Map4_BackGroundRect.w/2;  // 居中
+SDL_FreeSurface(Map4_BackGroundSurface);
+	Map4_BackGroundRect.x = W/2 - Map4_BackGroundRect.w/2;  //             
 	Map4_BackGroundRect.y = H/2 - Map4_BackGroundRect.h/2;
 	// Map5
 	Map5_BackGroundSurface = IMG_Load("assets/Ingame/map_5.png");
-	Map5_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map5_BackGroundSurface);  // 转换为纹理
-	Map5_BackGroundRect.x = W / 2 - 440;  // 居中
+	Map5_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map5_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map5_BackGroundSurface);
+	Map5_BackGroundRect.x = W / 2 - 440;  //             
 	Map5_BackGroundRect.y = H / 2 - 359;
 	Map5_BackGroundRect.w = 880;
 	Map5_BackGroundRect.h = 559;
 	// Map5_2
 	Map5_2_BackGroundSurface = IMG_Load("assets/Ingame/map_5_2.png");
-	Map5_2_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map5_2_BackGroundSurface);  // 转换为纹理
-	Map5_2_BackGroundRect.x = W / 2 - 440;  // 居中
+	Map5_2_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map5_2_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map5_2_BackGroundSurface);
+	Map5_2_BackGroundRect.x = W / 2 - 440;  //             
 	Map5_2_BackGroundRect.y = H / 2 - 359;
 	Map5_2_BackGroundRect.w = 880;
 	Map5_2_BackGroundRect.h = 559;
 	// Map6
 	Map6_BackGroundSurface = IMG_Load("assets/Ingame/map_6.png");
-	Map6_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map6_BackGroundSurface);  // 转换为纹理
+	Map6_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map6_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map6_BackGroundSurface);
 	Map6_BackGroundRect.w = 300;
 	Map6_BackGroundRect.h = H;
-	Map6_BackGroundRect.x = W/2 - Map6_BackGroundRect.w/2;  // 居中
+	Map6_BackGroundRect.x = W/2 - Map6_BackGroundRect.w/2;  //             
 	Map6_BackGroundRect.y = 0;
 	// Map7
 	Map7_BackGroundSurface = IMG_Load("assets/Ingame/map_7.png");
-	Map7_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map7_BackGroundSurface);  // 转换为纹理
+	Map7_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map7_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map7_BackGroundSurface);
 	Map7_BackGroundRect.w = Map4_BackGroundSurface->w * 3;
 	Map7_BackGroundRect.h = Map4_BackGroundSurface->h * 3;
-	Map7_BackGroundRect.x = W / 2 - Map7_BackGroundRect.w / 2;  // 居中
+	Map7_BackGroundRect.x = W / 2 - Map7_BackGroundRect.w / 2;  //             
 	Map7_BackGroundRect.y = H / 2 - Map7_BackGroundRect.h / 2;
 	// Map8
 	Map8_BackGroundSurface = IMG_Load("assets/Ingame/map_8.png");
-	Map8_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map8_BackGroundSurface);  // 转换为纹理
+	Map8_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map8_BackGroundSurface);  // 转      为            
 	Map8_BackGroundRect.w = Map8_BackGroundSurface->w / 2;
 	Map8_BackGroundRect.h = Map8_BackGroundSurface->h / 2;
-	Map8_BackGroundRect.x = 0;  // 居中
+SDL_FreeSurface(Map8_BackGroundSurface);
+	Map8_BackGroundRect.x = 0;  //             
 	Map8_BackGroundRect.y = H / 2 - Map8_BackGroundRect.h / 2;
 	// Map20
 	Map20_BackGroundSurface = IMG_Load("assets/Ingame/Airport.png");
-	Map20_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map20_BackGroundSurface);  // 转换为纹理
+	Map20_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map20_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map20_BackGroundSurface);
 	Map20_BackGroundRect.w = W;
 	Map20_BackGroundRect.h = H;
-	Map20_BackGroundRect.x = 0;  // 左上
+	Map20_BackGroundRect.x = 0;  //             
 	Map20_BackGroundRect.y = 0;
 	// Map21
 	Map21_BackGroundSurface = IMG_Load("assets/Ingame/Forest1.jpg");
-	Map21_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map21_BackGroundSurface);  // 转换为纹理
+	Map21_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map21_BackGroundSurface);  // 转      为            
 	Map21_BackGroundRect.w = Map21_BackGroundSurface->w;
 	Map21_BackGroundRect.h = Map21_BackGroundSurface->h;
-	Map21_BackGroundRect.x = W/2 - Map21_BackGroundRect.w/2;  // 居中
+SDL_FreeSurface(Map21_BackGroundSurface);
+	Map21_BackGroundRect.x = W/2 - Map21_BackGroundRect.w/2;  //             
 	Map21_BackGroundRect.y = H/2 - Map21_BackGroundRect.h/2;
 	// Map22
 	Map22_BackGroundSurface = IMG_Load("assets/Ingame/Forest2.png");
-	Map22_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map22_BackGroundSurface);  // 转换为纹理
+	Map22_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map22_BackGroundSurface);  // 转      为            
 	Map22_BackGroundRect.w = Map22_BackGroundSurface->w;
-	Map22_BackGroundRect.h = Map21_BackGroundSurface->h;
-	Map22_BackGroundRect.x = W / 2 - Map22_BackGroundRect.w / 2;  // 居中
+	Map22_BackGroundRect.h = Map22_BackGroundSurface->h;
+	Map22_BackGroundRect.x = W / 2 - Map22_BackGroundRect.w / 2;  //             
+SDL_FreeSurface(Map22_BackGroundSurface);
 	Map22_BackGroundRect.y = H / 2 - Map22_BackGroundRect.h / 2;
 	// Map23
 	Map23_BackGroundSurface = IMG_Load("assets/Ingame/map_8.png");
-	Map23_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map23_BackGroundSurface);  // 转换为纹理
+	Map23_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map23_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Map23_BackGroundSurface);
 	Map23_BackGroundRect.w = 0;
 	Map23_BackGroundRect.h = 0;
-	Map23_BackGroundRect.x = 0;  // 居中
+	Map23_BackGroundRect.x = 0;  //             
 	Map23_BackGroundRect.y = 0;
 	// Map24
 	Map24_BackGroundSurface = IMG_Load("assets/Ingame/rock_hole.png");
-	Map24_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map24_BackGroundSurface);  // 转换为纹理
+	Map24_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Map24_BackGroundSurface);  // 转      为            
 	Map24_BackGroundRect.w = Map24_BackGroundSurface->w;
 	Map24_BackGroundRect.h = Map24_BackGroundSurface->h;
-	Map24_BackGroundRect.x = W / 2 - Map24_BackGroundRect.w / 2;  // 居中
+SDL_FreeSurface(Map24_BackGroundSurface);
+	Map24_BackGroundRect.x = W / 2 - Map24_BackGroundRect.w / 2;  //             
 	Map24_BackGroundRect.y = H / 2 - Map24_BackGroundRect.h / 2;
 	// Puzzle1
 	Puzzle_1_BackGroundSurface = IMG_Load("assets/Ingame/Puzzle_1_0.png");
-	Puzzle_1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Puzzle_1_BackGroundSurface);  // 转换为纹理
-	Puzzle_1_BackGroundRect.x = 0;  // 居中
+	Puzzle_1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Puzzle_1_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Puzzle_1_BackGroundSurface);
+	Puzzle_1_BackGroundRect.x = 0;  //             
 	Puzzle_1_BackGroundRect.y = 0;
 	Puzzle_1_BackGroundRect.w = W;
 	Puzzle_1_BackGroundRect.h = H;
 	// Heart
 	Heart_BackGroundSurface = IMG_Load("assets/character/heart.png");
-	Heart_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Heart_BackGroundSurface);  // 转换为纹理
+	Heart_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Heart_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Heart_BackGroundSurface);
 	Heart_BackGroundRect.x = 42;  // Jan 1st
 	Heart_BackGroundRect.y = 96 + puzzle1.puzzle_1_h / 2 - puzzle1.puzzle_1_w / 2;
 	Heart_BackGroundRect.w = puzzle1.puzzle_1_w;
 	Heart_BackGroundRect.h = puzzle1.puzzle_1_w;
 	// Dragon_Heart
 	Dragon_Heart_BackGroundSurface = IMG_Load("assets/character/dragon_heart.png");
-	Dragon_Heart_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Dragon_Heart_BackGroundSurface);  // 转换为纹理
+	Dragon_Heart_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Dragon_Heart_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Dragon_Heart_BackGroundSurface);
 	// Shifter
 	Shifter_BackGroundSurface = IMG_Load("assets/Ingame/background1_0.png");
-	Shifter_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Shifter_BackGroundSurface);  // 转换为纹理
+	Shifter_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Shifter_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Shifter_BackGroundSurface);
 	Shifter_BackGroundRect.x = 0;
 	Shifter_BackGroundRect.y = 0;
 	Shifter_BackGroundRect.w = W;
 	Shifter_BackGroundRect.h = H;
 	// Game over
 	GameOver_BackGroundSurface = IMG_Load("assets/Ingame/GameOver.png");
-	GameOver_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, GameOver_BackGroundSurface);  // 转换为纹理
+	GameOver_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, GameOver_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(GameOver_BackGroundSurface);
 	GameOver_BackGroundRect.x = 0;
 	GameOver_BackGroundRect.y = 0;
 	GameOver_BackGroundRect.w = W;
 	GameOver_BackGroundRect.h = H;
-	// 左右
+	//             
 	Player0_BackGroundSurface = IMG_Load("assets/character/spr_maincharal_0.png");
-	Player0_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player0_BackGroundSurface);  // 转换为纹理
+	Player0_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player0_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player0_BackGroundSurface);
 	Player0_BackGroundRect.x = player.x - player.w / 2;
 	Player0_BackGroundRect.y = player.y - player.h / 2;
 	Player0_BackGroundRect.w = player.w;
 	Player0_BackGroundRect.h = player.h;
 	Player1_BackGroundSurface = IMG_Load("assets/character/spr_maincharal_1.png");
-	Player1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player1_BackGroundSurface);  // 转换为纹理
+	Player1_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player1_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player1_BackGroundSurface);
 	Player12_BackGroundSurface = IMG_Load("assets/character/spr_maincharal_2.png");
 	Player12_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player12_BackGroundSurface);
-	// 上行
+SDL_FreeSurface(Player12_BackGroundSurface);
+	//             
 	Player2_BackGroundSurface = IMG_Load("assets/character/spr_maincharau_0.png");
-	Player2_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player2_BackGroundSurface);  // 转换为纹理
+	Player2_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player2_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player2_BackGroundSurface);
 	Player3_BackGroundSurface = IMG_Load("assets/character/spr_maincharau_1.png");
-	Player3_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player3_BackGroundSurface);  // 转换为纹理
+	Player3_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player3_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player3_BackGroundSurface);
 	Player4_BackGroundSurface = IMG_Load("assets/character/spr_maincharau_2.png");
-	Player4_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player4_BackGroundSurface);  // 转换为纹理
+	Player4_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player4_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player4_BackGroundSurface);
 	Player5_BackGroundSurface = IMG_Load("assets/character/spr_maincharau_3.png");
-	Player5_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player5_BackGroundSurface);  // 转换为纹理
-	// 下行
+	Player5_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player5_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player5_BackGroundSurface);
+	//             
 	Player6_BackGroundSurface = IMG_Load("assets/character/spr_maincharad_water_0.png");
-	Player6_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player6_BackGroundSurface);  // 转换为纹理
+	Player6_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player6_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player6_BackGroundSurface);
 	Player7_BackGroundSurface = IMG_Load("assets/character/spr_maincharad_water_1.png");
-	Player7_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player7_BackGroundSurface);  // 转换为纹理
+	Player7_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player7_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player7_BackGroundSurface);
 	Player8_BackGroundSurface = IMG_Load("assets/character/spr_maincharad_water_2.png");
-	Player8_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player8_BackGroundSurface);  // 转换为纹理
+	Player8_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player8_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player8_BackGroundSurface);
 	Player9_BackGroundSurface = IMG_Load("assets/character/spr_maincharad_water_3.png");
-	Player9_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player9_BackGroundSurface);  // 转换为纹理
+	Player9_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Player9_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Player9_BackGroundSurface);
 	// Plane
 	Plane_BackGroundSurface = IMG_Load("assets/character/plane.png");
-	Plane_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Plane_BackGroundSurface);  // 转换为纹理
+	Plane_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Plane_BackGroundSurface);  // 转      为            
 	Plane_BackGroundRect.w = Plane_BackGroundSurface->w / 1.5;
 	Plane_BackGroundRect.h = Plane_BackGroundSurface->h / 1.5;
+SDL_FreeSurface(Plane_BackGroundSurface);
 	Plane_BackGroundRect.x = W / 2 - Plane_BackGroundRect.w / 2;
 	Plane_BackGroundRect.y = H / 2 - Plane_BackGroundRect.h / 2;
 	// Plane fight
 	Plane_fight_BackGroundSurface = IMG_Load("assets/Ingame/PlaneBattle.png");
-	Plane_fight_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Plane_fight_BackGroundSurface);  // 转换为纹理
+	Plane_fight_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Plane_fight_BackGroundSurface);  // 转      为            
 	Plane_fight_BackGroundRect_B[0].w = W;
-	Plane_fight_BackGroundRect_B[0].h = Plane_fight_BackGroundSurface->h * W / Plane_fight_BackGroundSurface->w;  // 等比例放缩
+	Plane_fight_BackGroundRect_B[0].h = Plane_fight_BackGroundSurface->h * W / Plane_fight_BackGroundSurface->w;  //    缺                     
 	Plane_fight_BackGroundRect_B[0].x = 0;
 	Plane_fight_BackGroundRect_B[0].y = 0;
 	Plane_fight_BackGroundRect_B[1].w = W;
-	Plane_fight_BackGroundRect_B[1].h = Plane_fight_BackGroundSurface->h * W / Plane_fight_BackGroundSurface->w;  // 等比例放缩
+	Plane_fight_BackGroundRect_B[1].h = Plane_fight_BackGroundSurface->h * W / Plane_fight_BackGroundSurface->w;  //    缺                     
+SDL_FreeSurface(Plane_fight_BackGroundSurface);
 	Plane_fight_BackGroundRect_B[1].x = 0;
 	Plane_fight_BackGroundRect_B[1].y = -Plane_fight_BackGroundRect_B[1].h;
 
@@ -1723,7 +1767,8 @@ void LOAD()
 
 	// Bullet
 	Bullet_BackGroundSurface = IMG_Load("assets/Ingame/bullet.png");
-	Bullet_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Bullet_BackGroundSurface);  // 转换为纹理
+	Bullet_BackGroundTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, Bullet_BackGroundSurface);  // 转      为            
+SDL_FreeSurface(Bullet_BackGroundSurface);
 	for (int i = 0; i < Bullet_num; i++)
 	{
 		Bullet_BackGroundRect[i].w = Plane_BackGroundSurface->h / 6;
@@ -1750,7 +1795,7 @@ void PrintPlayer()
 
 	Player0_BackGroundRect = { player.x - player.w / 2, player.y - player.h / 2, player.w, player.h };
 
-	// 渲染玩家碰撞箱（用于调试）
+	//       染               撞   洌?         诘      裕   
 	/*SDL_RenderDrawRect(Puzzle1_Renderer, &Player0_BackGroundRect);*/
 
 	if (key_cmd.d == 1 && key_cmd.a == 0)
@@ -1880,13 +1925,13 @@ void PrintPlayer()
 		}
 		else
 		{
-			// 防止其它奇奇怪怪操作（如只同时按A,D或W,S键）时人物消失
+			//       止                        止植                     只同时      A,D      W,S            时                  
 			SDL_RenderCopyEx(Puzzle1_Renderer, Player0_BackGroundTexture, NULL, &Player0_BackGroundRect, 0, NULL, SDL_FLIP_HORIZONTAL);
 		}
 	}
 	else
 	{
-		// 防止其它奇奇怪怪操作（如同时按A,D键）时人物消失
+		//       止                        止植                     同时      A,D            时                  
 		SDL_RenderCopyEx(Puzzle1_Renderer, Player0_BackGroundTexture, NULL, &Player0_BackGroundRect, 0, NULL, SDL_FLIP_HORIZONTAL);
 	}
 }
@@ -1898,7 +1943,7 @@ void Player_move(int start, int end)
 	int x_register = player.x;
 	int y_register = player.y;
 
-	// 处理移动
+	//                贫   
 	if (key_cmd.w == 1)
 	{
 		y_register -= player.v_y;
@@ -1910,7 +1955,7 @@ void Player_move(int start, int end)
 		}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.s == 1)
 	{
@@ -1957,10 +2002,10 @@ void Map_0()
 	int x_register = player.x;
 	int y_register = player.y;
 
-	// 处理地图移动
+	//                   图   贫   
 	if (key_cmd.w == 1 && player.y >= H / 2 && Puzzle1_BackGroundRect.y + player.v_y <= 0)
 	{
-		// 此时地图不到头，人在下半屏
+		//       时      图            头                     掳         
 		y_register -= player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 6) == 0)  // collision detect
 		{
@@ -1973,11 +2018,11 @@ void Map_0()
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	else if (key_cmd.w == 1 && player.y <= H / 2 && Puzzle1_BackGroundRect.y + player.v_y > 0)
 	{
-		// 此时地图(快)到头，人在上半屏
+		//       时      图(      )      头                     习         
 		y_register -= player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 6) == 0)  // collision detect
 		{
@@ -1988,11 +2033,11 @@ void Map_0()
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.s == 1 && player.y <= H / 2 && Puzzle1_BackGroundRect.y - player.v_y >= -H)
 	{
-		// 此时地图不到头，人在上半屏
+		//       时      图            头                     习         
 		y_register += player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 6) == 0)
 		{
@@ -2005,11 +2050,11 @@ void Map_0()
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	else if (key_cmd.s == 1 && player.y >= H / 2 && Puzzle1_BackGroundRect.y - player.v_y <= -H)
 	{
-		// 此时地图（快）到头，人在下半屏
+		//       时      图         欤?      头                     掳         
 		y_register += player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 6) == 0)
 		{
@@ -2020,33 +2065,33 @@ void Map_0()
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.a == 1)
 	{
-		// 此时地图不到头，人在右半屏
+		//       时      图            头                     野         
 		x_register -= player.v_x;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 6) == 0)  // collision detect
 		{
 			player.x -= player.v_x;
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.d == 1)
 	{
-		// 此时地图不到头，人在左半屏
+		//       时      图            头                                 
 		x_register += player.v_x;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 6) == 0)  // collision detect
 		{
 			player.x += player.v_x;
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	//if (key_cmd.a == 1 && Puzzle1_BackGroundRect.x + player.v_x < W / 2 && player.x >= W / 2)
 	//{
-	//	// 此时地图不到头，人在右半屏
+	//	//       时      图            头                     野         
 	//	x_register -= player.v_x;
 	//	if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 1) == 0)  // collision detect
 	//	{
@@ -2059,11 +2104,11 @@ void Map_0()
 	//		}
 	//	}
 	//	x_register = player.x;
-	//	y_register = player.y;  // 防止影响后续判断
+	//	y_register = player.y;  //       止影                  卸   
 	//}
 	//else if (key_cmd.a == 1 && Puzzle1_BackGroundRect.x + player.v_x >= W/2)
 	//{
-	//	// 此时地图(快)到头了，人在左半屏
+	//	//       时      图(      )      头   耍                              
 	//	x_register -= player.v_x;
 	//	if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 1) == 0)  // collision detect
 	//	{
@@ -2075,11 +2120,11 @@ void Map_0()
 	//		}
 	//	}
 	//	x_register = player.x;
-	//	y_register = player.y;  // 防止影响后续判断
+	//	y_register = player.y;  //       止影                  卸   
 	//}
 	//if (key_cmd.d == 1 && Puzzle1_BackGroundRect.x - player.v_x > W/2-Puzzle1_BackGroundSurface->w && player.x <= W / 2)
 	//{
-	//	// 此时地图不到头，人在左半屏
+	//	//       时      图            头                                 
 	//	x_register += player.v_x;
 	//	if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 1) == 0)  // collision detect
 	//	{
@@ -2096,11 +2141,11 @@ void Map_0()
 	//		}*/
 	//	}
 	//	x_register = player.x;
-	//	y_register = player.y;  // 防止影响后续判断
+	//	y_register = player.y;  //       止影                  卸   
 	//}
 	//else if (key_cmd.d == 1 && Puzzle1_BackGroundRect.x - player.v_x <= W/2 - Puzzle1_BackGroundSurface->w)
 	//{
-	//	// 此时地图(快)到头了，人在右半屏
+	//	//       时      图(      )      头   耍                  野         
 	//	x_register += player.v_x;
 	//	if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, 0, 1) == 0)  // collision detect
 	//	{
@@ -2111,12 +2156,12 @@ void Map_0()
 	//		}*/
 	//	}
 	//	x_register = player.x;
-	//	y_register = player.y;  // 防止影响后续判断
+	//	y_register = player.y;  //       止影                  卸   
 	//}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Puzzle1_BackGroundTexture, NULL, &Puzzle1_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 	if (player.y <= player.h && is_time_machine_dialogue == 0)
 	{
@@ -2176,7 +2221,7 @@ void Map_1(int start, int end)
 		//}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= 315)
 	{
 		player.y = 315;
@@ -2194,9 +2239,9 @@ void Map_1(int start, int end)
 		player.x = 345;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map1_BackGroundTexture, NULL, &Map1_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 
 	if (!dialogue_Emma)
@@ -2263,24 +2308,24 @@ void Map_2(int start, int end)
 	int x_register = player.x;
 	int y_register = player.y;
 
-	// 处理地图移动
+	//                   图   贫   
 	if (player.y < H / 2 && Map2_BackGroundRect.y + player.v_y <= 0)
 	{
-		// 此时地图显示出现错误
+		//       时      图      示         执         
 		int i = H / 2 - player.y;
 		player.y = H / 2;
 		Map2_BackGroundRect.y + i;
 	}
 	if (player.y > H / 2 && Map2_BackGroundRect.y - player.v_y >= -H)
 	{
-		// 此时地图显示出现错误
+		//       时      图      示         执         
 		int i = player.y - H / 2;
 		player.y = H / 2;
 		Map2_BackGroundRect.y - i;
 	}
 	if (key_cmd.w == 1 && player.y >= H / 2 && Map2_BackGroundRect.y + player.v_y <= 0)
 	{
-		// 此时地图不到头，人在下半屏
+		//       时      图            头                     掳         
 		y_register -= player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, start, end) == 0)  // collision detect
 		{
@@ -2293,11 +2338,11 @@ void Map_2(int start, int end)
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	else if (key_cmd.w == 1 && player.y <= H / 2 && Map2_BackGroundRect.y + player.v_y > 0)
 	{
-		// 此时地图(快)到头，人在上半屏
+		//       时      图(      )      头                     习         
 		y_register -= player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, start, end) == 0)  // collision detect
 		{
@@ -2308,11 +2353,11 @@ void Map_2(int start, int end)
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.s == 1 && player.y <= H / 2 && Map2_BackGroundRect.y - player.v_y >= -H)
 	{
-		// 此时地图不到头，人在上半屏
+		//       时      图            头                     习         
 		y_register += player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, start, end) == 0)
 		{
@@ -2325,11 +2370,11 @@ void Map_2(int start, int end)
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	else if (key_cmd.s == 1 && player.y >= H / 2 && Map2_BackGroundRect.y - player.v_y <= -H)
 	{
-		// 此时地图（快）到头，人在下半屏
+		//       时      图         欤?      头                     掳         
 		y_register += player.v_y;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, start, end) == 0)
 		{
@@ -2340,36 +2385,36 @@ void Map_2(int start, int end)
 			}
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.a == 1)
 	{
-		// 此时地图不到头，人在右半屏
+		//       时      图            头                     野         
 		x_register -= player.v_x;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, start, end) == 0)  // collision detect
 		{
 			player.x -= player.v_x;
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.d == 1)
 	{
-		// 此时地图不到头，人在左半屏
+		//       时      图            头                                 
 		x_register += player.v_x;
 		if (Collision_Detect(x_register - player.w / 2, y_register - player.h / 2, player.r, start, end) == 0)  // collision detect
 		{
 			player.x += player.v_x;
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	// update collision box
 	Object_Update();
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map2_BackGroundTexture, NULL, &Map2_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 
 	if (key_cmd.E == 1)
@@ -2405,16 +2450,16 @@ void Map_3(int start, int end)
 		else if (player.x >= 430 && player.x <= 550 && player.y <= 150)
 		{
 			is_change = 1;
-			map_num = 142;
+			map_num = ENTER_MAP14_LEFT;
 		}
 		else if (player.x >= 1025 && player.x <= 1135 && player.y <= 150)
 		{
 			is_change = 1;
-			map_num = 141;
+			map_num = ENTER_MAP14_RIGHT;
 		}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= 400)
 	{
 		player.y = 400;
@@ -2431,9 +2476,9 @@ void Map_3(int start, int end)
 	{
 		player.x = 59;
 	}
-	// 渲染disk
+	//       染disk
 	
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map3_BackGroundTexture, NULL, &Map3_BackGroundRect);
 	if (is_disk3 == 1 && map5_is_dialogue == 1)
 	{
@@ -2465,7 +2510,7 @@ void Map_3(int start, int end)
 			}
 		}
 	}
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 }
 void Map_4(int start, int end)
@@ -2486,16 +2531,16 @@ void Map_4(int start, int end)
 		else if (player.x >= 670 && player.x <= 785 && player.y >= 450)
 		{
 			is_change = 1;
-			map_num = 131;
+			map_num = ENTER_MAP13_RIGHT;
 		}
 		else if (player.x >= 80 && player.x <= 188 && player.y >= 450)
 		{
 			is_change = 1;
-			map_num = 132;
+			map_num = ENTER_MAP13_LEFT;
 		}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= 495)
 	{
 		player.y = 495;
@@ -2513,7 +2558,7 @@ void Map_4(int start, int end)
 		player.x = 96;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map4_BackGroundTexture, NULL, &Map4_BackGroundRect);
 	if (is_disk4 == 1 && map5_is_dialogue == 1)
 	{
@@ -2545,7 +2590,7 @@ void Map_4(int start, int end)
 			}
 		}
 	}
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 }
 void Map_5(int start, int end)
@@ -2575,7 +2620,7 @@ void Map_5(int start, int end)
 		}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= 490)
 	{
 		player.y = 490;
@@ -2593,7 +2638,7 @@ void Map_5(int start, int end)
 		player.x = 193;
 	}
 
-	// 渲染背景
+	//       染            
 	if (is_ID == 1 && map_ID_opeNDoor == 1)
 	{
 		SDL_RenderCopy(Puzzle1_Renderer, Map5_2_BackGroundTexture, NULL, &Map5_BackGroundRect);
@@ -2602,7 +2647,7 @@ void Map_5(int start, int end)
 	{
 		SDL_RenderCopy(Puzzle1_Renderer, Map5_BackGroundTexture, NULL, &Map5_BackGroundRect);
 	}
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 	// dialogue
 	if (player.y < 171 && map5_is_dialogue == 0)
@@ -2675,7 +2720,7 @@ void Map_6(int start, int end)
 		}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= 613)
 	{
 		player.y = 613;
@@ -2685,7 +2730,7 @@ void Map_6(int start, int end)
 		player.x = 491;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map6_BackGroundTexture, NULL, &Map6_BackGroundRect);
 	if (is_disk6 == 1 && map5_is_dialogue ==1)
 	{
@@ -2717,7 +2762,7 @@ void Map_6(int start, int end)
 			}
 		}
 	}
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 }
 void Map_7(int start, int end)
@@ -2737,7 +2782,7 @@ void Map_7(int start, int end)
 		}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= 502)
 	{
 		player.y = 502;
@@ -2755,9 +2800,9 @@ void Map_7(int start, int end)
 		player.x = 108;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map7_BackGroundTexture, NULL, &Map7_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 }
 int map_8_kill_flag = 0;
@@ -2821,7 +2866,7 @@ void Map_8()
 	int x_register = player.x;
 	int y_register = player.y;
 
-	// 处理地图移动
+	//                   图   贫   
 	if (key_cmd.w == 1)
 	{
 		y_register -= player.v_y;
@@ -2830,7 +2875,7 @@ void Map_8()
 			player.y -= player.v_y;
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.s == 1)
 	{
@@ -2840,11 +2885,11 @@ void Map_8()
 			player.y += player.v_y;
 		}
 		x_register = player.x;
-		y_register = player.y;  // 防止影响后续判断
+		y_register = player.y;  //       止影                  卸   
 	}
 	if (key_cmd.a == 1 && Map8_BackGroundRect.x + player.v_x < 0 && player.x >= W / 2)
 	{
-		// 此时地图不到头，人在右半屏
+		//       时      图            头                     野         
 		player.x -= player.v_x;
 		if (player.x <= W / 2)
 		{
@@ -2856,7 +2901,7 @@ void Map_8()
 	}
 	else if (key_cmd.a == 1 && Map8_BackGroundRect.x + player.v_x >= 0)
 	{
-		// 此时地图(快)到头了，人在左半屏
+		//       时      图(      )      头   耍                              
 		player.x -= player.v_x;
 		Map8_BackGroundRect.x = 0;
 		if (player.x < player.w / 2)
@@ -2866,7 +2911,7 @@ void Map_8()
 	}
 	if (key_cmd.d == 1 && Map8_BackGroundRect.x - player.v_x > -Map8_BackGroundRect.w + W && player.x <= W / 2)
 	{
-		// 此时地图不到头，人在左半屏
+		//       时      图            头                                 
 		player.x += player.v_x;
 		if (player.x >= W / 2)
 		{
@@ -2881,7 +2926,7 @@ void Map_8()
 	}
 	else if (key_cmd.d == 1 && Map8_BackGroundRect.x - player.v_x <= -Map8_BackGroundRect.w + W)
 	{
-		// 此时地图(快)到头了，人在右半屏
+		//       时      图(      )      头   耍                  野         
 		player.x += player.v_x;
 		if (player.x >= W - player.w / 2)
 		{
@@ -2933,7 +2978,7 @@ void Map_8()
 		map_num = 5;
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= 405)
 	{
 		player.y = 405;
@@ -2951,9 +2996,9 @@ void Map_8()
 		player.x = player.w / 2;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map8_BackGroundTexture, NULL, &Map8_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 }
 void Map_21()
@@ -2968,7 +3013,7 @@ void Map_21()
 		}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= Map21_BackGroundRect.h + Map21_BackGroundRect.y - player.h/2-1)
 	{
 		player.y = Map21_BackGroundRect.h + Map21_BackGroundRect.y - player.h/2-1;
@@ -2986,9 +3031,9 @@ void Map_21()
 		player.x = Map21_BackGroundRect.x + player.w / 2;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map21_BackGroundTexture, NULL, &Map21_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 	if (!dialogue_aFTEr_pLAne)
 	{
@@ -3049,7 +3094,7 @@ void Map_22()
 {
 	Player_move(19, 19);
 
-	// 限制移动
+	//                贫   
 	if (player.y >= Map22_BackGroundRect.h + Map22_BackGroundRect.y - player.h / 2 - 1)
 	{
 		player.y = Map22_BackGroundRect.h + Map22_BackGroundRect.y - player.h / 2 - 1;
@@ -3067,9 +3112,9 @@ void Map_22()
 		player.x = Map22_BackGroundRect.x + player.w / 2;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map22_BackGroundTexture, NULL, &Map22_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 	if (player.x >= 927)
 	{
@@ -3108,7 +3153,7 @@ void Map_24()
 		}
 	}
 
-	// 限制移动
+	//                贫   
 	if (player.y >= Map24_BackGroundRect.h + Map24_BackGroundRect.y - player.h / 2 - 1)
 	{
 		player.y = Map24_BackGroundRect.h + Map24_BackGroundRect.y - player.h / 2 - 1;
@@ -3126,9 +3171,9 @@ void Map_24()
 		player.x = 591;
 	}
 
-	// 渲染背景
+	//       染            
 	SDL_RenderCopy(Puzzle1_Renderer, Map24_BackGroundTexture, NULL, &Map24_BackGroundRect);
-	// 渲染玩家动画
+	//       染      叶         
 	PrintPlayer();
 	if(!rOCk_hOLe_dialogue)
 	{
@@ -3154,90 +3199,90 @@ void Map_24()
 }
 void Puzzle_1()
 {
-	// dragon决策
+	// dragon            
 	if (puzzle1.round == 1)
 	{
 		SDL_Delay(200);
 		key_cmd.E = 0;
-		// 确认是否可以必胜
-		if (puzzle1.player_row + 19 != puzzle1.player_column && puzzle1.player_column < puzzle1.player_row + 19 && puzzle1.player_row == puzzle1.register_row)  // 在本行必胜位置左侧
+		// 确         欠         员   
+		if (puzzle1.player_row + 19 != puzzle1.player_column && puzzle1.player_column < puzzle1.player_row + 19 && puzzle1.player_row == puzzle1.register_row)  //    诒      斜   胜位               
 		{
 			if (key_cmd.s == 1)
 			{
 				key_cmd.s = 0;
 			}
-			puzzle1.is_controlled = 1;  // 标记已被控制过
-			key_cmd.d = 1;  // 往右走
+			puzzle1.is_controlled = 1;  //             驯            乒   
+			key_cmd.d = 1;  //                   
 		}
-		else if (puzzle1.player_row + 19 != puzzle1.player_column && puzzle1.player_column > puzzle1.player_row + 19 && puzzle1.player_column == puzzle1.register_column)  // 在本行必胜位置右侧
+		else if (puzzle1.player_row + 19 != puzzle1.player_column && puzzle1.player_column > puzzle1.player_row + 19 && puzzle1.player_column == puzzle1.register_column)  //    诒      斜   胜位         也   
 		{
-			if (puzzle1.player_row < puzzle1.player_column - 19)  // 在本列必胜位置上面
+			if (puzzle1.player_row < puzzle1.player_column - 19)  //    诒      斜   胜位                  
 			{
 				if (key_cmd.d == 1)
 				{
 					key_cmd.d = 0;
 				}
-				puzzle1.is_controlled = 1;  // 标记已被控制过
-				key_cmd.s = 1;  // 往下走
+				puzzle1.is_controlled = 1;  //             驯            乒   
+				key_cmd.s = 1;  //                   
 			}
 		}
-		else if (puzzle1.player_row + 19 == puzzle1.player_column)  // 在本行必胜位置
+		else if (puzzle1.player_row + 19 == puzzle1.player_column)  //    诒      斜   胜位      
 		{
 			if (puzzle1.is_controlled == 1)
 			{
-				key_cmd.E = 1;  // 已经必胜
+				key_cmd.E = 1;  //    丫         
 			}
-			else  // 此时必输
+			else  //       时            
 			{
 				if (last_cmd % 2 == 0)
 				{
 					int step = last_cmd % (12 - puzzle1.player_row);
-					if (step == 0 && (12 - puzzle1.player_row) == 1)  // 在最后一行
+					if (step == 0 && (12 - puzzle1.player_row) == 1)  //                一      
 					{
-						key_cmd.d = 1;  // 往右走
+						key_cmd.d = 1;  //                   
 					}
 					else if (step == 0 && (12 - puzzle1.player_row) != 1)
 					{
-						key_cmd.s = 1;  // 往下走
+						key_cmd.s = 1;  //                   
 					}
 					else
 					{
-						key_cmd.s = step;  // 往下走
+						key_cmd.s = step;  //                   
 					}
 				}
 				else if (last_cmd % 2 == 1)
 				{
 					int step = last_cmd % (31 - puzzle1.player_column);
-					if (step == 0 && (31 - puzzle1.player_column) == 1)  // 在最后一列
+					if (step == 0 && (31 - puzzle1.player_column) == 1)  //                一      
 					{
-						key_cmd.s = 1;  // 往下走
+						key_cmd.s = 1;  //                   
 					}
 					else if (step == 0 && (31 - puzzle1.player_column) != 1)
 					{
-						key_cmd.d = 1;  // 往右走
+						key_cmd.d = 1;  //                   
 					}
 					else if (puzzle1.player_column >= 29)
 					{
-						key_cmd.s = 1;  // 往下走
+						key_cmd.s = 1;  //                   
 					}
 					else
 					{
-						key_cmd.d = step;  // 往右走
+						key_cmd.d = step;  //                   
 					}
 				}
 			}
 			puzzle1.is_controlled = 1;
 		}
-		else if (key_cmd.a == 0 && key_cmd.s == 0 && key_cmd.d == 0 && key_cmd.w == 0)  // dragon移动完毕
+		else if (key_cmd.a == 0 && key_cmd.s == 0 && key_cmd.d == 0 && key_cmd.w == 0)  // dragon   贫            
 		{
 			key_cmd.E = 1;
 		}
 	}
 
 
-	// 根据移动命令处理移动(一次穿梭，只能同行或同列移动)
+	//                贫            畲?         贫   (一   未         只      同   谢   同         贫   )
 	now_cmd = SDL_GetTicks64();
-	if (now_cmd - last_cmd > 200 || puzzle1.round == 1)  // 避免player连续操作(dragon 无所谓)
+	if (now_cmd - last_cmd > 200 || puzzle1.round == 1)  //             player                        (dragon             谓)
 	{
 		if (key_cmd.w >= 1 && puzzle1.player_row > 0)
 		{
@@ -3251,7 +3296,7 @@ void Puzzle_1()
 				{
 					puzzle1.player_row -= 2;
 				}
-				puzzle1.is_controlled = 1;  // 标记已被控制过
+				puzzle1.is_controlled = 1;  //             驯            乒   
 			}
 		}
 		if (key_cmd.s >= 1 && puzzle1.player_row < 11)
@@ -3264,9 +3309,9 @@ void Puzzle_1()
 				}
 				else
 				{
-					puzzle1.player_row += 2;  // 在边界时，自动跳转到命令方向上最近的合法日期
+					puzzle1.player_row += 2;  //    诒呓   时         远         转               罘?                        暮戏               
 				}
-				puzzle1.is_controlled = 1;  // 标记已被控制过
+				puzzle1.is_controlled = 1;  //             驯            乒   
 			}
 		}
 		if (key_cmd.a >= 1 && puzzle1.player_column > 0 && calendar[puzzle1.player_row][puzzle1.player_column - 1] == 1)
@@ -3282,7 +3327,7 @@ void Puzzle_1()
 			{
 				puzzle1.player_column += 1;
 			}
-			puzzle1.is_controlled = 1;  // 标记已被控制过
+			puzzle1.is_controlled = 1;  //             驯            乒   
 		}
 		last_cmd = now_cmd;
 	}
@@ -3325,12 +3370,12 @@ void Puzzle_1()
 		puzzle1.is_dialogue = 1;
 	}
 
-	// 分类处理Enter防止在dragon操作时player按下Enter
-	if (key_cmd.E == 1 && puzzle1.round == 0 && puzzle1.is_controlled == 1)  // Player按下
+	//          啻?      Enter      止      dragon            时player            Enter
+	if (key_cmd.E == 1 && puzzle1.round == 0 && puzzle1.is_controlled == 1)  // Player            
 	{
-		if (puzzle1.player_row > puzzle1.register_row || puzzle1.player_column > puzzle1.register_column)  // 只能去未来
+		if (puzzle1.player_row > puzzle1.register_row || puzzle1.player_column > puzzle1.register_column)  // 只      去未      
 		{
-			// 记录穿梭位置
+			//       录            位      
 			puzzle1.register_row = puzzle1.player_row;
 			puzzle1.register_column = puzzle1.player_column;
 
@@ -3342,13 +3387,13 @@ void Puzzle_1()
 			key_cmd.E = 0;
 			// initialize
 			puzzle1.is_controlled = 0;
-			// 更改round
+			//             round
 			puzzle1.round = 1;
 
-			// 播放音效
+			//                   
 			Mix_PlayChannel(-1, SoundEffect, 0);
 
-			// 判断是否胜利
+			//    卸      欠   胜      
 			if (puzzle1.register_row == 11 && puzzle1.register_column == 30)
 			{
 				puzzle1.result = 0;
@@ -3356,13 +3401,13 @@ void Puzzle_1()
 		}
 		else
 		{
-			// 播放音效
+			//                   
 			Mix_PlayChannel(-1, Error_SoundEffect, 0);
 		}
 	}
 	else if (key_cmd.E == 1 && puzzle1.round == 1 && puzzle1.is_controlled == 1)
 	{
-		// 记录穿梭位置
+		//       录            位      
 		puzzle1.register_row = puzzle1.player_row;
 		puzzle1.register_column = puzzle1.player_column;
 
@@ -3372,15 +3417,15 @@ void Puzzle_1()
 		key_cmd.d = 0;
 		key_cmd.w = 0;
 		key_cmd.E = 0;
-		// 更改round
+		//             round
 		puzzle1.round = 0;
 		// initialize
 		puzzle1.is_controlled = 0;
 
-		// 播放音效
+		//                   
 		Mix_PlayChannel(-1, SoundEffect, 0);
 
-		// 判断是否胜利
+		//    卸      欠   胜      
 		if (puzzle1.register_row == 11 && puzzle1.register_column == 30)
 		{
 			puzzle1.result = 1;
@@ -3393,7 +3438,7 @@ void Puzzle_1()
 //	{
 //		is_change = 1;
 //	}
-//	// 渲染背景
+//	//       染            
 //	SDL_RenderCopy(Puzzle1_Renderer, GameOver_BackGroundTexture, NULL, &GameOver_BackGroundRect);
 //}
 int Find_Max(int a, int b)
@@ -3448,11 +3493,11 @@ void Bullet_Print()
 				}
 				else
 				{
-					//// 子弹速度限幅
+					////    拥      俣      薹   
 					//Bullet[i].v_x = Bullet[i].v_x * (Bullet_Max_Speed / Find_Max(Bullet[i].v_x, Bullet[i].v_y));
 					//Bullet[i].v_y = Bullet[i].v_y * (Bullet_Max_Speed / Find_Max(Bullet[i].v_x, Bullet[i].v_y));
 					//Bullet[i].x += Bullet[i].v_x;
-					//Bullet[i].y += Bullet[i].v_y;  // 不可，因为速度又为零了
+					//Bullet[i].y += Bullet[i].v_y;  //          桑         为   俣         为            
 
 					// special bullet(sin? or other?)
 					Bullet[i].x += Bullet_Max_Speed;
@@ -3479,14 +3524,14 @@ void Bullet_Print()
 				if ((object[7].x - Bullet[i].x + object[7].y - Bullet[i].y) != 0)
 				{
 					Bullet[i].v_x = Bullet_Speed * ((object[7].x - Bullet[i].x) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y));
-					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); // 速度不确定，方向指向主角
+					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); //    俣炔   确                        指                  
 				}
 				else
 				{
 					Bullet[i].v_x = 0;
 					Bullet[i].v_y = 0;
 				}
-				Bullet[i].is_exist = 1;  // 重新生成
+				Bullet[i].is_exist = 1;  //                         
 			}
 		}
 	}
@@ -3523,7 +3568,7 @@ void Bullet_Print()
 				}
 				else
 				{
-					//// 子弹速度限幅
+					////    拥      俣      薹   
 					//Bullet[i].v_x *= (Bullet_Max_Speed / Find_Max(Bullet[i].v_x, Bullet[i].v_y));
 					//Bullet[i].v_y *= (Bullet_Max_Speed / Find_Max(Bullet[i].v_x, Bullet[i].v_y));
 					//Bullet[i].x += Bullet[i].v_x;
@@ -3552,8 +3597,8 @@ void Bullet_Print()
 				if ((object[7].x - Bullet[i].x + object[7].y - Bullet[i].y) != 0)
 				{
 					Bullet[i].v_x = Bullet_Speed * ((object[7].x - Bullet[i].x) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y));
-					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); // 速度不确定，方向指向主角
-					Bullet[i].is_exist = 1;  // 重新生成
+					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); //    俣炔   确                        指                  
+					Bullet[i].is_exist = 1;  //                         
 				}
 				else
 				{
@@ -3596,7 +3641,7 @@ void Bullet_Print()
 				}
 				else
 				{
-					//// 子弹速度限幅
+					////    拥      俣      薹   
 					//Bullet[i].v_x = Bullet[i].v_x * (Bullet_Max_Speed / (Find_Max(Bullet[i].v_x, Bullet[i].v_y)));
 					//Bullet[i].v_y = Bullet[i].v_y * (Bullet_Max_Speed / (Find_Max(Bullet[i].v_x, Bullet[i].v_y)));
 					//Bullet[i].x += Bullet[i].v_x;
@@ -3625,14 +3670,14 @@ void Bullet_Print()
 				if ((object[7].x - Bullet[i].x + object[7].y - Bullet[i].y) != 0)
 				{
 					Bullet[i].v_x = Bullet_Speed * ((object[7].x - Bullet[i].x) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y));
-					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); // 速度不确定，方向指向主角
+					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); //    俣炔   确                        指                  
 				}
 				else
 				{
 					Bullet[i].v_x = 0;
 					Bullet[i].v_y = 0;
 				}
-				Bullet[i].is_exist = 1;  // 重新生成
+				Bullet[i].is_exist = 1;  //                         
 			}
 		}
 	}
@@ -3669,7 +3714,7 @@ void Bullet_Print()
 				}
 				else
 				{
-					//// 子弹速度限幅
+					////    拥      俣      薹   
 					//Bullet[i].v_x = Bullet[i].v_x * (Bullet_Max_Speed / (Find_Max(Bullet[i].v_x, Bullet[i].v_y)));
 					//Bullet[i].v_y = Bullet[i].v_y * (Bullet_Max_Speed / (Find_Max(Bullet[i].v_x, Bullet[i].v_y)));
 					//Bullet[i].x += Bullet[i].v_x;
@@ -3698,14 +3743,14 @@ void Bullet_Print()
 				if ((object[7].x - Bullet[i].x + object[7].y - Bullet[i].y) != 0)
 				{
 					Bullet[i].v_x = Bullet_Speed * ((object[7].x - Bullet[i].x) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y));
-					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); // 速度不确定，方向指向主角
+					Bullet[i].v_y = Bullet_Speed * ((object[7].y - Bullet[i].y) / (object[7].x - Bullet[i].x + object[7].y - Bullet[i].y)); //    俣炔   确                        指                  
 				}
 				else
 				{
 					Bullet[i].v_x = 0;
 					Bullet[i].v_y = 0;
 				}
-				Bullet[i].is_exist = 1;  // 重新生成
+				Bullet[i].is_exist = 1;  //                         
 			}
 		}
 	}
@@ -3740,7 +3785,7 @@ void Plane_Object_Update()
 
 void Are_You_Tough_Man()
 {
-	// 处理移动
+	//                贫   
 	if (key_cmd.w == 1)
 	{
 		Plane_BackGroundRect.y -= Plane_Speed;
@@ -3757,7 +3802,7 @@ void Are_You_Tough_Man()
 	{
 		Plane_BackGroundRect.x += Plane_Speed;
 	}
-	// 限制移动
+	//                贫   
 	if (Plane_BackGroundRect.y <= Plane_fight_BackGroundRect.y)
 	{
 		Plane_BackGroundRect.y = Plane_fight_BackGroundRect.y;
@@ -3793,7 +3838,7 @@ void Are_You_Tough_Man()
 		}
 	}
 
-	// 渲染图片
+	//       
 	int BG_speed = 5;
 	for (int i = 0; i < 2; i++)
 	{
@@ -3805,9 +3850,9 @@ void Are_You_Tough_Man()
 		SDL_RenderCopy(Puzzle1_Renderer, Plane_fight_BackGroundTexture, NULL, &Plane_fight_BackGroundRect_B[i]);
 	}
 
-	// 渲染玩家
+	//       染         
 	SDL_RenderCopy(Puzzle1_Renderer, Plane_BackGroundTexture, NULL, &Plane_BackGroundRect);
-	//// 渲染玩家碰撞箱（用于调试）
+	////       染               撞   洌?         诘      裕   
 	//SDL_SetRenderDrawColor(Puzzle1_Renderer, 255, 255, 255, 255);  // white
 	//int H_register = Plane_BackGroundRect.h;
 	//int y_register = Plane_BackGroundRect.y;
@@ -3845,7 +3890,7 @@ void Are_You_Tough_Man()
 		tough_enough_dialogue = 1;
 	}
 
-	// 渲染Bullet
+	//       染Bullet
 	Bullet_Print();
 
 
@@ -3854,7 +3899,7 @@ void Are_You_Tough_Man()
 void Map_Shift(int map_num, int x, int y)
 {
 	/*
-	作用为淡出地图，请在render_present前最后一个使用！因为它要盖住所有纹理。
+	            为                  图                  render_present前         一      使   茫         为      要      住                              
 	*/
 	int d_t = 1;  // unit: s
 	int F_N = FR * d_t;
@@ -3867,21 +3912,21 @@ void Map_Shift(int map_num, int x, int y)
 			Mix_HaltMusic();
 			// play Music
 			Mix_VolumeMusic(32);  // 0~128
-			Mix_PlayMusic(Puzzle_1_bgm, -1);  // 播放音乐
+			Mix_PlayMusic(Puzzle_1_bgm, -1);  //                         
 		}
 		else if (map_num == 1)
 		{
 			//player.x = 1074;
-			//player.y = 440;  // 防止卡住
+			//player.y = 440;  //       止      
 		}
 		else if (map_num == 0)
 		{
-			Puzzle1_BackGroundRect.x = W / 2 - Puzzle1_BackGroundSurface->w / 2;  // 居中
+			Puzzle1_BackGroundRect.x = W / 2 - Puzzle1_BackGroundSurface->w / 2;  //             
 			Puzzle1_BackGroundRect.y = -H;
 			Puzzle1_BackGroundRect.w = Puzzle1_BackGroundSurface->w;
 			Puzzle1_BackGroundRect.h = H * 2;
 			player.x = W / 2;
-			player.y = H - player.h;  // 防止卡住
+			player.y = H - player.h;  //       止      
 		}
 		else if (map_num == 3)
 		{
@@ -3898,7 +3943,7 @@ void Map_Shift(int map_num, int x, int y)
 		else if (map_num == 21)
 		{
 			Mix_HaltMusic();
-			Mix_PlayMusic(SoundBackGround, -1);  // 播放音乐
+			Mix_PlayMusic(SoundBackGround, -1);  //                         
 		}
 		else if (map_num == 23)
 		{
@@ -3907,7 +3952,7 @@ void Map_Shift(int map_num, int x, int y)
 		else if (map_num == 24)
 		{
 			Mix_HaltMusic();
-			Mix_PlayMusic(Before_boss2_bgm, -1);  // 播放音乐
+			Mix_PlayMusic(Before_boss2_bgm, -1);  //                         
 		}
 		else if (map == 5 && map_num == 18)
 		{
@@ -3934,7 +3979,7 @@ void Map_Shift(int map_num, int x, int y)
 			// halt music
 			Mix_HaltMusic();
 			// play Music
-			Mix_PlayMusic(SoundBackGround, -1);  // 播放音乐
+			Mix_PlayMusic(SoundBackGround, -1);  //                         
 		}
 		else if (puzzle1.result == 0)
 		{
@@ -3944,7 +3989,7 @@ void Map_Shift(int map_num, int x, int y)
 
 		SDL_SetTextureAlphaMod(Shifter_BackGroundTexture, 255);
 		SDL_RenderCopy(Puzzle1_Renderer, Shifter_BackGroundTexture, NULL, &Shifter_BackGroundRect);
-		// 归零
+		//             
 		alpha = 0;
 		is_change = 0;
 		map = map_num;
@@ -3974,6 +4019,16 @@ void save()
 	gameData.is_time_machine_dialogue = is_time_machine_dialogue;
 	gameData.parkour_result = parkour_result;
 	gameData.lose_count = lose_count;
+	// 淇濆瓨瀵硅瘽鐘舵?
+	gameData.enter_is_dialogue = enter_is_dialogue;
+	gameData.tough_enough_dialogue = tough_enough_dialogue;
+	gameData.dialogue_aFTEr_pLAne = dialogue_aFTEr_pLAne;
+	gameData.dialogue_Lamy = dialogue_Lamy;
+	gameData.rOCk_hOLe_dialogue = rOCk_hOLe_dialogue;
+	gameData.dialogue_beFOre_Puzz3 = dialogue_beFOre_Puzz3;
+	gameData.map5_is_dialogue = map5_is_dialogue;
+	gameData.dialogue_Emma = dialogue_Emma;
+	gameData.dialogue_Wyvern = dialogue_Wyvern;
 	saveGame(gameData, currentSave);
 }
 void QUIT()
@@ -3981,45 +4036,12 @@ void QUIT()
 	int quit_i;
 	/*
 *	QUIT
-*	Functions:关闭所有子系统
+*	Functions:   乇                     
 *	Parameter:NULL
 *	Return Value:NULL
 */
 	save();
 	// all quit
-	SDL_FreeSurface(choice_BackGroundSurface);
-	SDL_FreeSurface(Puzzle1_BackGroundSurface);
-	SDL_FreeSurface(Player1_BackGroundSurface);
-	SDL_FreeSurface(Player0_BackGroundSurface);
-	SDL_FreeSurface(Player2_BackGroundSurface);
-	SDL_FreeSurface(Player3_BackGroundSurface);
-	SDL_FreeSurface(Player4_BackGroundSurface);
-	SDL_FreeSurface(Player5_BackGroundSurface);
-	SDL_FreeSurface(Player6_BackGroundSurface);
-	SDL_FreeSurface(Player7_BackGroundSurface);
-	SDL_FreeSurface(Player8_BackGroundSurface);
-	SDL_FreeSurface(Player9_BackGroundSurface);
-	SDL_FreeSurface(Player12_BackGroundSurface);
-	SDL_FreeSurface(Shifter_BackGroundSurface);
-	SDL_FreeSurface(Map1_BackGroundSurface);
-	SDL_FreeSurface(Map2_BackGroundSurface);
-	SDL_FreeSurface(Map3_BackGroundSurface);
-	SDL_FreeSurface(Map4_BackGroundSurface);
-	SDL_FreeSurface(Map5_BackGroundSurface);
-	SDL_FreeSurface(Map5_2_BackGroundSurface);
-	SDL_FreeSurface(Map6_BackGroundSurface);
-	SDL_FreeSurface(Map7_BackGroundSurface);
-	SDL_FreeSurface(Map8_BackGroundSurface);
-	SDL_FreeSurface(Map20_BackGroundSurface);
-	SDL_FreeSurface(Map21_BackGroundSurface);
-	SDL_FreeSurface(Map22_BackGroundSurface);
-	SDL_FreeSurface(Map23_BackGroundSurface);
-	SDL_FreeSurface(Map24_BackGroundSurface);
-	SDL_FreeSurface(Heart_BackGroundSurface);
-	SDL_FreeSurface(Dragon_Heart_BackGroundSurface);
-	SDL_FreeSurface(Plane_BackGroundSurface);
-	SDL_FreeSurface(Bullet_BackGroundSurface);
-	SDL_FreeSurface(GameOver_BackGroundSurface);
 
 	Mix_FreeChunk(SoundEffect);
 	Mix_FreeChunk(Error_SoundEffect);
@@ -4089,7 +4111,7 @@ void Key_detect()
 	if (keystates[SDL_SCANCODE_A])
 	{
 		key_cmd.a = 1;
-		/*printf("A: %d\n", start_t);  // 事实证明，keystates方法一次可以检测所有按键的状态*/
+		/*printf("A: %d\n", start_t);  //       实证            keystates            一   慰      约               邪               状态*/
 	}
 	else if (keystates[SDL_SCANCODE_A] == 0)
 	{
@@ -4141,12 +4163,14 @@ void Center_Text(int x, int y, int w, int h, const char* text)
 	const char* text: output tex
 	*/
 	SDL_Surface* DateSurface = TTF_RenderUTF8_Blended(Date_Font, text, FontColor);
-	SDL_Texture* DateTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, DateSurface);  // 转换为纹理
+	SDL_Texture* DateTexture = SDL_CreateTextureFromSurface(Puzzle1_Renderer, DateSurface);  // 转      为            
 	int Text_x, Text_y;
 	Text_x = x + w / 2 - (DateSurface->w) / 2;
 	Text_y = y + h / 2 - (DateSurface->h) / 2;
 	SDL_Rect TextRect = { Text_x , Text_y, DateSurface->w, DateSurface->h };
 	SDL_RenderCopy(Puzzle1_Renderer, DateTexture, NULL, &TextRect);
+   SDL_FreeSurface(DateSurface);
+   SDL_DestroyTexture(DateTexture);
 }
 
 void Puzzle_1_Init()
@@ -4157,9 +4181,9 @@ void Puzzle_1_Init()
 	puzzle1.player_column = 0;
 	puzzle1.puzzle_1_w = (1133 - 42) / 29 + (1133 - 42) * 1.5 / (29 * 22);
 	puzzle1.puzzle_1_h = (604 - 96) / 12 + (604 - 96) * 1.3 / (12 * 12);
-	puzzle1.round = 0;  // 0 为player回合 1 为dragon回合
-	puzzle1.is_controlled = 0;  // 1 代表已被（dragon）控制过  0 代表没被（dragon）控制过
-	puzzle1.result = 10; // 1 代表 dragon win，0 代表 player win
+	puzzle1.round = 0;  // 0 为player   睾    1 为dragon   睾   
+	puzzle1.is_controlled = 0;  // 1                驯         dragon               乒     0             没            dragon               乒   
+	puzzle1.result = 10; // 1              dragon win      0              player win
 }
 
 void Object_INIT_Point(int i)

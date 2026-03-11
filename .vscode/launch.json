@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run SDL2_test (x64 Debug)",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\SDL2_test\\x64\\Debug\\SDL2_test.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}\\SDL2_test",
+            "environment": [],
+            "console": "newExternalWindow",
+            "preLaunchTask": "Build (Debug x64)"
+        }
+    ]
+}
