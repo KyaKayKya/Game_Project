@@ -19,4 +19,4 @@ The savings folder includes multiple backup save files to help you avoid getting
 
 - Rename the file to `gamesave.dat1.dat` — it will take effect right away!
 
-## 😋 Enjoy the game~
+## 😋 Enjoy the game~~
